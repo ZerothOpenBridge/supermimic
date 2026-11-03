@@ -1,13 +1,13 @@
 # SuperMimic · Zeroth Mini3 协作入口
 
-两份实际Mini3复现分别在独立分支；本main分支只提供导航与共同交接。整理日期2026-11-03。
+两份实际Mini3复现分别在独立分支；本main分支只提供导航与先导说明。整理日期2026-11-03。
 
 |分支|内容|历史正式run|
 |---|---|---|
 |[cuboi](https://github.com/ZerothOpenBridge/supermimic/tree/cuboi)|mjlab / MuJoCo-Warp，21关节Mini3适配源码、锁文件、配置和启动脚本|320000 iteration；34.0054 GPUh|
 |[zita](https://github.com/ZerothOpenBridge/supermimic/tree/zita)|Isaac Lab 3无Kit / Newton-MJWarp，独立Mini3适配|221158 iteration；47.9526 GPUh；交付161203|
 
-先读[同事对接说明](docs/COLLEAGUE_HANDOFF.md)与[日志口径](docs/LOGGING.md)，再切实现分支按README操作。两份策略从随机初始化训练seed0，各使用单张48GB RTX4090。不同iteration、输入与精度不能直接横比。
+先读[先导](docs/INTRODUCTION.md)与[日志口径](docs/LOGGING.md)，再切实现分支按README操作。两份策略从随机初始化训练seed0，各使用单张48GB RTX4090。不同iteration、输入与精度不能直接横比。
 
 数据、权重、完整日志、视频、replay和镜像留在`/mnt/cpfs/workspace/yxq/supermimic/`。仓库只保存代码、配置、路径/哈希、结果摘要和说明。这里尚未完成Mini3真机或感知WBC性能验收。
 
