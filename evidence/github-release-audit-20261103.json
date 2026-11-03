@@ -24,42 +24,48 @@
       "name": "cuboi-mini3-seed0-iter320000.pt",
       "size": 67925715,
       "digest": "sha256:f6c2c296a1c1c3ea164041d7c0f886cad2047ac51f4d7311aacc393cd64d9331",
-      "browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/cuboi-mini3-seed0-iter320000.pt"
+      "draft_browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/cuboi-mini3-seed0-iter320000.pt",
+      "published_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/mini3-seed0-v1/cuboi-mini3-seed0-iter320000.pt"
     },
     {
       "id": 705137753,
       "name": "cuboi-mini3-seed0-onnx.tar.gz",
       "size": 30113601,
       "digest": "sha256:a3f2cbcad0665d6e2117a6ba3b1e706a400ba6d19398f841432d82a1efaed69d",
-      "browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/cuboi-mini3-seed0-onnx.tar.gz"
+      "draft_browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/cuboi-mini3-seed0-onnx.tar.gz",
+      "published_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/mini3-seed0-v1/cuboi-mini3-seed0-onnx.tar.gz"
     },
     {
       "id": 705142083,
       "name": "model-manifest.json",
       "size": 2852,
       "digest": "sha256:1f593447e21e07da7c94654f03645163f49422eef51a74e0db9d9a56e50de536",
-      "browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/model-manifest.json"
+      "draft_browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/model-manifest.json",
+      "published_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/mini3-seed0-v1/model-manifest.json"
     },
     {
       "id": 705142157,
       "name": "SHA256SUMS",
       "size": 472,
       "digest": "sha256:cdbe6b62c177b0bdf8771312cb879f49b224228d48b7463a3ac243bc356e5a91",
-      "browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/SHA256SUMS"
+      "draft_browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/SHA256SUMS",
+      "published_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/mini3-seed0-v1/SHA256SUMS"
     },
     {
       "id": 705137733,
       "name": "zita-mini3-seed0-iter161203.pt",
       "size": 68102341,
       "digest": "sha256:95ed9bab1f933acdd1b14e91b72ba791f6994fd60a37f76d450c5cd69a942079",
-      "browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/zita-mini3-seed0-iter161203.pt"
+      "draft_browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/zita-mini3-seed0-iter161203.pt",
+      "published_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/mini3-seed0-v1/zita-mini3-seed0-iter161203.pt"
     },
     {
       "id": 705137755,
       "name": "zita-mini3-seed0-onnx.tar.gz",
       "size": 31016487,
       "digest": "sha256:5cbc81afe67dc7f743a5261a112befecf1bc9d3be85d8cfc13030a47bd66582f",
-      "browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/zita-mini3-seed0-onnx.tar.gz"
+      "draft_browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/zita-mini3-seed0-onnx.tar.gz",
+      "published_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/mini3-seed0-v1/zita-mini3-seed0-onnx.tar.gz"
     }
   ],
   "model_assets_sha256": {
@@ -557,5 +563,6 @@
         "traces": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/github-release-check-20261103/runs/zita/readback-v1/evaluation/scoring-traces"
       }
     }
-  }
+  },
+  "readback_phase": "authenticated private draft; published artifact URLs are listed separately"
 }
