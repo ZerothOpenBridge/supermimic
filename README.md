@@ -2,7 +2,7 @@
 
 这是我们实际训练使用的Mini3适配源码快照；对应另一实现见[zita分支](https://github.com/ZerothOpenBridge/supermimic/tree/zita)，共同导航见[main](https://github.com/ZerothOpenBridge/supermimic/tree/main)。本分支不是上游G1默认示例。
 
-**先读：[同事对接](docs/COLLEAGUE_HANDOFF.md) · [环境](docs/ENVIRONMENT.md) · [训练](docs/TRAINING.md) · [日志](docs/LOGGING.md) · [CPFS数据与权重](docs/CPFS_ASSETS.md) · [本次验收范围](docs/VALIDATION.md)**
+**先读：[先导](docs/INTRODUCTION.md) · [环境](docs/ENVIRONMENT.md) · [训练](docs/TRAINING.md) · [日志](docs/LOGGING.md) · [CPFS数据与权重](docs/CPFS_ASSETS.md) · [本次验收范围](docs/VALIDATION.md)**
 
 ## 快速开始：复用已部署环境
 

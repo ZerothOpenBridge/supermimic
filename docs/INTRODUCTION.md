@@ -1,6 +1,8 @@
-# 同事对接：从 Mini3 动作底座到感知 WBC
+# 先导
 
-整理日期：2026-11-03，北京时间。本文是已完成实验的交接和下一步候选，不会自动启动实验或占用 GPU。
+从 Mini3 动作底座到感知 WBC。
+
+整理日期：2026-11-03，北京时间。本文是已完成实验的总结和下一步候选，不会自动启动实验或占用 GPU。
 
 ## 我们已有的底座
 
@@ -38,6 +40,6 @@ SuperMimic现有世界模型来自平地训练。若直接用于新地形想象�
 
 新实验先明确run ID、空闲GPU、GPU小时及磁盘上限；不抢占现有进程，不因低分自动追加预算，不用Full-6000选模。两份历史run不可覆盖。数据、权重、完整日志和容器镜像均留CPFS。
 
-## 交接阅读顺序
+## 阅读顺序
 
 先看本分支README → ENVIRONMENT → TRAINING → LOGGING → CPFS_ASSETS。源码身份见provenance，历史轻量回执见evidence。原论文：SuperMimic https://arxiv.org/abs/2610.28480；ViBe https://arxiv.org/abs/2609.09918；PGMT https://arxiv.org/abs/2609.08511；Perceptive BFM https://arxiv.org/abs/2606.08059。
