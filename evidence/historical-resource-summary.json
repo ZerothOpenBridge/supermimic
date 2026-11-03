@@ -1,0 +1,494 @@
+{
+  "backend": "zita",
+  "cap_seconds": 172800,
+  "spent_seconds": 172629.18816056103,
+  "jobs": [
+    {
+      "label": "sim-smoke",
+      "started": "2026-10-29T10:31:44.744125+00:00",
+      "status": "failed",
+      "elapsed_seconds": 5.563693282194436,
+      "peak_gpu_memory_mib": 2
+    },
+    {
+      "label": "sim-smoke-r2",
+      "started": "2026-10-29T10:32:03.845574+00:00",
+      "status": "passed",
+      "elapsed_seconds": 49.96439623273909,
+      "peak_gpu_memory_mib": 578
+    },
+    {
+      "label": "profile4096",
+      "started": "2026-10-29T10:33:42.629617+00:00",
+      "status": "passed",
+      "elapsed_seconds": 234.88550129998475,
+      "peak_gpu_memory_mib": 19916
+    },
+    {
+      "label": "full-resume-initial-r1",
+      "started": "2026-10-29T11:16:01.746177+00:00",
+      "status": "passed",
+      "elapsed_seconds": 294.22517193108797,
+      "peak_gpu_memory_mib": 3274
+    },
+    {
+      "label": "full-resume-continued-r1",
+      "started": "2026-10-29T11:21:45.131218+00:00",
+      "status": "passed",
+      "elapsed_seconds": 38.54738269653171,
+      "peak_gpu_memory_mib": 3484
+    },
+    {
+      "label": "zhangyu-sim-smoke-r1",
+      "started": "2026-10-30T10:30:26.977612+00:00",
+      "status": "failed",
+      "elapsed_seconds": 58.06232336349785,
+      "peak_gpu_memory_mib": 492,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "zhangyu-sim-smoke-r2",
+      "started": "2026-10-30T10:33:49.659537+00:00",
+      "status": "passed",
+      "elapsed_seconds": 174.29327337257564,
+      "peak_gpu_memory_mib": 578,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "zhangyu-profile4096-r1",
+      "started": "2026-10-30T10:36:44.163447+00:00",
+      "status": "passed",
+      "elapsed_seconds": 333.47637408878654,
+      "peak_gpu_memory_mib": 19916,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "pilot12-4096-r1",
+      "started": "2026-10-30T10:42:17.925661+00:00",
+      "status": "passed",
+      "elapsed_seconds": 3703.907271844335,
+      "peak_gpu_memory_mib": 14484,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "pilot-eval-initial-r1",
+      "started": "2026-10-30T11:44:02.046851+00:00",
+      "status": "passed",
+      "elapsed_seconds": 207.45855472702533,
+      "peak_gpu_memory_mib": 642,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "pilot-eval-final-r1",
+      "started": "2026-10-30T11:47:29.713373+00:00",
+      "status": "passed",
+      "elapsed_seconds": 197.8056422676891,
+      "peak_gpu_memory_mib": 3664,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk01",
+      "started": "2026-10-30T11:50:51.378215+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7324.6046167090535,
+      "peak_gpu_memory_mib": 19947,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-010384",
+      "started": "2026-10-30T13:52:56.198426+00:00",
+      "status": "passed",
+      "elapsed_seconds": 311.28089464455843,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk02",
+      "started": "2026-10-30T13:58:07.708897+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7318.353298146278,
+      "peak_gpu_memory_mib": 22951,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-020425",
+      "started": "2026-10-30T16:00:06.270760+00:00",
+      "status": "passed",
+      "elapsed_seconds": 315.4962880415842,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk03",
+      "started": "2026-10-30T16:05:21.996005+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7312.7430425146595,
+      "peak_gpu_memory_mib": 22947,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-030530",
+      "started": "2026-10-30T18:07:14.957188+00:00",
+      "status": "passed",
+      "elapsed_seconds": 312.1956100948155,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk04",
+      "started": "2026-10-30T18:12:27.378102+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7318.418526928872,
+      "peak_gpu_memory_mib": 22951,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-040682",
+      "started": "2026-10-30T20:14:26.022831+00:00",
+      "status": "passed",
+      "elapsed_seconds": 303.69247052725405,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk05",
+      "started": "2026-10-30T20:19:29.939333+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7305.569707841612,
+      "peak_gpu_memory_mib": 22951,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-050604",
+      "started": "2026-10-30T22:21:15.721020+00:00",
+      "status": "passed",
+      "elapsed_seconds": 309.2626722827554,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk06",
+      "started": "2026-10-30T22:26:25.206896+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7317.346350330859,
+      "peak_gpu_memory_mib": 22951,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-060591",
+      "started": "2026-10-31T00:28:22.757080+00:00",
+      "status": "passed",
+      "elapsed_seconds": 298.71147711668164,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk07",
+      "started": "2026-10-31T00:33:21.682207+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7317.033585756086,
+      "peak_gpu_memory_mib": 22947,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-070745",
+      "started": "2026-10-31T02:35:18.941847+00:00",
+      "status": "passed",
+      "elapsed_seconds": 308.2137429267168,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk08",
+      "started": "2026-10-31T02:40:27.375214+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7300.643147993833,
+      "peak_gpu_memory_mib": 22947,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-080742",
+      "started": "2026-10-31T04:42:08.236987+00:00",
+      "status": "passed",
+      "elapsed_seconds": 299.6134899482131,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk09",
+      "started": "2026-10-31T04:47:08.069133+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7321.206699749455,
+      "peak_gpu_memory_mib": 22951,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-090771",
+      "started": "2026-10-31T06:49:09.485366+00:00",
+      "status": "passed",
+      "elapsed_seconds": 303.24916496500373,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk10",
+      "started": "2026-10-31T06:54:12.950959+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7291.640753257088,
+      "peak_gpu_memory_mib": 22947,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-100884",
+      "started": "2026-10-31T08:55:44.796480+00:00",
+      "status": "passed",
+      "elapsed_seconds": 316.6407183520496,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk11",
+      "started": "2026-10-31T09:01:01.658868+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7316.387707181275,
+      "peak_gpu_memory_mib": 22951,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-110995",
+      "started": "2026-10-31T11:02:58.252313+00:00",
+      "status": "passed",
+      "elapsed_seconds": 309.41071973741055,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk12",
+      "started": "2026-10-31T11:08:07.876086+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7307.022171514109,
+      "peak_gpu_memory_mib": 22947,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-121011",
+      "started": "2026-10-31T13:09:55.110383+00:00",
+      "status": "passed",
+      "elapsed_seconds": 305.09020828455687,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk13",
+      "started": "2026-10-31T13:15:00.420629+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7320.488924284466,
+      "peak_gpu_memory_mib": 22947,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-131027",
+      "started": "2026-10-31T15:17:01.117656+00:00",
+      "status": "passed",
+      "elapsed_seconds": 316.87606802675873,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk14",
+      "started": "2026-10-31T15:22:18.208392+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7314.61731208954,
+      "peak_gpu_memory_mib": 22947,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-141147",
+      "started": "2026-10-31T17:24:13.034295+00:00",
+      "status": "passed",
+      "elapsed_seconds": 305.12746019102633,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk15",
+      "started": "2026-10-31T17:29:18.375561+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7295.79904076457,
+      "peak_gpu_memory_mib": 22947,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-151196",
+      "started": "2026-10-31T19:30:54.383864+00:00",
+      "status": "passed",
+      "elapsed_seconds": 305.0554852988571,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk16",
+      "started": "2026-10-31T19:35:59.651668+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7288.909882792272,
+      "peak_gpu_memory_mib": 22951,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-161203",
+      "started": "2026-10-31T21:37:28.769292+00:00",
+      "status": "passed",
+      "elapsed_seconds": 302.0060362527147,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk17",
+      "started": "2026-10-31T21:42:30.995509+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7322.14255835209,
+      "peak_gpu_memory_mib": 22947,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-171148",
+      "started": "2026-10-31T23:44:33.340540+00:00",
+      "status": "passed",
+      "elapsed_seconds": 304.02336794137955,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk18",
+      "started": "2026-10-31T23:49:37.574081+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7302.177250777371,
+      "peak_gpu_memory_mib": 22951,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-181201",
+      "started": "2026-11-01T01:51:19.965140+00:00",
+      "status": "passed",
+      "elapsed_seconds": 312.4857751503587,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk19",
+      "started": "2026-11-01T01:56:32.674342+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7310.703777153045,
+      "peak_gpu_memory_mib": 22947,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-191229",
+      "started": "2026-11-01T03:58:23.582773+00:00",
+      "status": "passed",
+      "elapsed_seconds": 311.05930013395846,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk20",
+      "started": "2026-11-01T04:03:34.869449+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7304.70277830679,
+      "peak_gpu_memory_mib": 22947,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-201368",
+      "started": "2026-11-01T06:05:19.787853+00:00",
+      "status": "passed",
+      "elapsed_seconds": 315.83076648321,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk21",
+      "started": "2026-11-01T06:10:35.832263+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7309.564304254018,
+      "peak_gpu_memory_mib": 22951,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-211474",
+      "started": "2026-11-01T08:12:25.604173+00:00",
+      "status": "passed",
+      "elapsed_seconds": 306.8016539691016,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "formal-seed0-r1-chunk22",
+      "started": "2026-11-01T08:17:32.619991+00:00",
+      "status": "passed",
+      "elapsed_seconds": 7033.692429567687,
+      "peak_gpu_memory_mib": 22951,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    },
+    {
+      "label": "dev316-221158",
+      "started": "2026-11-01T10:14:46.517341+00:00",
+      "status": "passed",
+      "elapsed_seconds": 305.1073388205841,
+      "peak_gpu_memory_mib": 821,
+      "host_alias": "zhangyu",
+      "gpu_index": 0
+    }
+  ],
+  "source_path": "/mnt/cpfs/workspace/yxq/supermimic/experiments/mini3_v1/zita-budget.json",
+  "source_sha256": "b831aceebbb602c9b93e2ad8b90fe784354bbad195c3adc7a4a16114959ae5f9"
+}

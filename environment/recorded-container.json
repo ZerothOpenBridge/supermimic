@@ -1,0 +1,25 @@
+{
+  "image_id": "sha256:4f29ffba9da63bc2ec812b02053db1b4c29cea89ceddc5c66848e89895422f91",
+  "archive_sha256": "b42aa4bd5790711017612418b19654fe350f3818253a0fea6d2dce3ac672d57d",
+  "container": "yxq-supermimic-zita-zhangyu-gpu0",
+  "device_requests": [
+    {
+      "Driver": "",
+      "Count": 0,
+      "DeviceIDs": [
+        "0"
+      ],
+      "Capabilities": [
+        [
+          "gpu"
+        ]
+      ],
+      "Options": {}
+    }
+  ],
+  "docker_root": "/tmp/yxq-supermimic-docker-zhangyu-overlay/storage/docker",
+  "storage_backing_file": "/mnt/cpfs/workspace/yxq/supermimic/shared/docker-zhangyu-overlay-v1.ext4",
+  "storage_driver": "overlay2 on an exclusive CPFS-backed ext4 loop mount",
+  "host": "zhangyu",
+  "created_unix": 1793356429.452217
+}

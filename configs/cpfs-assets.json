@@ -1,0 +1,102 @@
+{
+  "required": [
+    {
+      "path": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/packed/train.pt",
+      "exists": true,
+      "bytes": 4889691727,
+      "sha256": "c246e2de82ff4fa0e10fa467b9efa495af31beb636071b779b44ef039a7f465d"
+    },
+    {
+      "path": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/packed/dev316.pt",
+      "exists": true,
+      "bytes": 10871394,
+      "sha256": "0f268b0c3d2df286d2edaae22d0a1c76446ca19d313d4124219b3cfba78f2434"
+    },
+    {
+      "path": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/packed/pilot.pt",
+      "exists": true,
+      "bytes": 552027,
+      "sha256": "356a913190f02d5968e506b9944a864a7460984fcc38a8e593f2bd9281a783c5"
+    },
+    {
+      "path": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/control/control.json",
+      "exists": true,
+      "bytes": 3769,
+      "sha256": "5889e9a87dfa985f1800f6ed4b66dd6b872b41c9340e069e77cf4958ee031c2f"
+    },
+    {
+      "path": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/control/mini3.xml",
+      "exists": true,
+      "bytes": 24397,
+      "sha256": "ed527cc8ef0dcd2566b4ce688e6878afdedee6643c56d97a27ef8d5850d6f12c"
+    },
+    {
+      "path": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/control/usd/mini3/mini3.usda",
+      "bytes": 678,
+      "sha256": "4b7f5b1bd24a5faa631a925a41621a9b0f47b3b9cd3725661bf39c0a10b8aeb9"
+    }
+  ],
+  "control_sha256": "5889e9a87dfa985f1800f6ed4b66dd6b872b41c9340e069e77cf4958ee031c2f",
+  "data_metadata": [
+    {
+      "path": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/packed/train.manifest.json",
+      "exists": true,
+      "bytes": 36347842,
+      "sha256": "7708825f54f5dd6a0b33b8746427c9661d28a66a2b2f0fe135b8688e5957da2f"
+    },
+    {
+      "path": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/packed/dev316.manifest.json",
+      "exists": true,
+      "bytes": 94941,
+      "sha256": "70f0689610ce7aaaa0e8a4947979b11877f948bed2cfa3dd635b4da80f5e6a90"
+    },
+    {
+      "path": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/packed/split-proof.json",
+      "exists": true,
+      "bytes": 4630597,
+      "sha256": "63e87763210446cfaba4cd42394fa6d1e6e3b630e789363aacbcee179c8d1cd3"
+    },
+    {
+      "path": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/control/control.json",
+      "exists": true,
+      "bytes": 3769,
+      "sha256": "5889e9a87dfa985f1800f6ed4b66dd6b872b41c9340e069e77cf4958ee031c2f"
+    },
+    {
+      "path": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/control/asset-hashes.json",
+      "exists": true,
+      "bytes": 3643,
+      "sha256": "d99a01fbb531c38fbb1cd44301007e54744aa4d56c279c76a364ee31bc458619"
+    },
+    {
+      "path": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/evaluator-frozen-v1/identity.json",
+      "exists": true,
+      "bytes": 7227,
+      "sha256": "eb05773aae420d8bd2b63fe5ec7f672e8fd8fc16029099bada0f4add99ed1be4"
+    }
+  ],
+  "checkpoints": [
+    {
+      "path": "/mnt/cpfs/workspace/yxq/supermimic/experiments/mini3_v1/cuboi/formal-seed0-r1/candidate_0320000.pt",
+      "exists": true,
+      "bytes": 67925715
+    },
+    {
+      "path": "/mnt/cpfs/workspace/yxq/supermimic/experiments/mini3_v1/cuboi/formal-seed0-r1/ckpt_latest.pt",
+      "exists": true,
+      "bytes": 2432089941
+    },
+    {
+      "path": "/mnt/cpfs/workspace/yxq/supermimic/experiments/mini3_v1/zita/formal-seed0-r1/ckpt_161203.pt",
+      "exists": true,
+      "bytes": 68102341
+    },
+    {
+      "path": "/mnt/cpfs/workspace/yxq/supermimic/experiments/mini3_v1/zita/formal-seed0-r1/last.pt",
+      "exists": true,
+      "bytes": 3198787423
+    }
+  ],
+  "selected_checkpoint_sha256": "95ed9bab1f933acdd1b14e91b72ba791f6994fd60a37f76d450c5cd69a942079",
+  "final_onnx_sha256": "f4c0ee6557197a499f349e222fca079ece44ca4f866192ddc141acd6c92e2a1c"
+}

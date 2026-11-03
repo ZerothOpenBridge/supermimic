@@ -1,0 +1,20 @@
+{
+  "checkpoint": "/mnt/cpfs/workspace/yxq/supermimic/experiments/mini3_v1/zita/formal-seed0-r1/ckpt_161203.pt",
+  "iteration": 161203,
+  "criterion_key": [
+    0.996835470199585,
+    0.9968879818916321,
+    -0.005014361813664436,
+    -161203
+  ],
+  "development": {
+    "clips": 316,
+    "failed": 1,
+    "completion_rate": 0.996835470199585,
+    "mean_progress": 0.9968879818916321,
+    "mean_local_kpt_mae": 0.005014361813664436,
+    "mean_norm_return": 0.961194634437561,
+    "mean_full_clip_norm_return": 0.9612025022506714
+  },
+  "development_only": true
+}

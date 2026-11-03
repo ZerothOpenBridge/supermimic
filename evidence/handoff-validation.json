@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-03",
+  "backend": "zita",
+  "native_python_files": 16,
+  "syntax_python_files": 39,
+  "local_syntax_passed": true,
+  "secret_and_size_scan_passed": true,
+  "dry_run_actions": {
+    "preflight": true,
+    "check-fk": true,
+    "train": true,
+    "resume": true,
+    "native-eval": true,
+    "export": true,
+    "evaluate": true
+  },
+  "cpu_preflight": {
+    "passed": true,
+    "backend": "zita",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "imported_source": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/handoff-validation-20261103/zita/supermimic",
+    "joint_count": 21,
+    "control_sha256": "5889e9a87dfa985f1800f6ed4b66dd6b872b41c9340e069e77cf4958ee031c2f",
+    "versions": {
+      "torch": "2.11.0+cu130",
+      "mujoco": "3.15.0",
+      "warp-lang": "1.17.0",
+      "numpy": "2.5.1",
+      "scipy": "1.17.0"
+    },
+    "cuda_visible_devices": "",
+    "large_data_loaded": false,
+    "gpu_simulation_started": false
+  },
+  "cpu_fk": {
+    "backend": "zita",
+    "samples": 128,
+    "max_absolute_error": {
+      "position": 1.2266312598985252e-07,
+      "rotation_matrix": 2.8971964260993133e-07,
+      "linear_velocity": 4.41144956120354e-07,
+      "angular_velocity": 7.89035246029357e-07
+    },
+    "gradient_finite": true,
+    "passed": true,
+    "mujoco": "3.15.0"
+  },
+  "no_gpu_job_started": true,
+  "fresh_environment_rebuilt": false,
+  "gpu_end_to_end_rerun": false,
+  "full6000_rerun": false,
+  "actual_native_cli_matches_fresh_recipe": true
+}

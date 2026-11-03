@@ -1,0 +1,11 @@
+{
+  "backend": "zita",
+  "upstream_repository": "https://github.com/zita-ch/supermimic_vibed",
+  "upstream_commit": "ee0608f917d08a591356b9bdc7d94bd949157341",
+  "isaaclab_commit": "46d6cc3d7b115906fad12efd372fbf69f4e3d3ed",
+  "code_files": 16,
+  "source_capture": "2026-11-03 CPFS read-only audit",
+  "clean_module_sha256": "17170c73bde87aa4e387fe117a4c4cf6534edcf9642103442f8a580333476e32",
+  "export_source_tree_sha256": "17170c73bde87aa4e387fe117a4c4cf6534edcf9642103442f8a580333476e32",
+  "ignored_appledouble_metadata": true
+}

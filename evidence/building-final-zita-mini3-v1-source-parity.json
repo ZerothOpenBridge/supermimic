@@ -1,0 +1,65 @@
+{
+  "backend": "zita",
+  "checkpoint": "/mnt/cpfs/workspace/yxq/supermimic/experiments/mini3_v1/zita/formal-seed0-r1/ckpt_161203.pt",
+  "iteration": 161203,
+  "strict_state_dict_keys": 26,
+  "tolerance": {
+    "absolute": 1e-05,
+    "relative": 1e-05
+  },
+  "cases": [
+    {
+      "id": "reset20",
+      "ticks": 20,
+      "producer_conformance": "building-final-zita-mini3-v1-reset20-producer-conformance.npz",
+      "producer_conformance_sha256": "e0b314b47f3ecea410b4cd4a8a49e51749241c3b587f776833ada178b5e1450f"
+    },
+    {
+      "id": "turning22",
+      "ticks": 22,
+      "producer_conformance": "building-final-zita-mini3-v1-turning22-producer-conformance.npz",
+      "producer_conformance_sha256": "ff4c15330087c00977b13f0f566b87cc48a78040c55b2812ba225bdd9eddb90f"
+    },
+    {
+      "id": "boundary22",
+      "ticks": 22,
+      "producer_conformance": "building-final-zita-mini3-v1-boundary22-producer-conformance.npz",
+      "producer_conformance_sha256": "fbe120eb9de85a17692656ceb5f1f23f856143f60764b7795c8829daeca9d23b"
+    }
+  ],
+  "network_only_latency_ms": {
+    "mean": 0.9923422336578369,
+    "p50": 0.9919959120452404,
+    "p95": 0.9952547959983349,
+    "provider": "CPUExecutionProvider",
+    "threads": 1,
+    "warmup": 30,
+    "samples": 100,
+    "end_to_end_teleop": null
+  },
+  "source_variant_tree_sha256": "17170c73bde87aa4e387fe117a4c4cf6534edcf9642103442f8a580333476e32",
+  "exporter_sha256": "1eca3a42bf7ae5e6d00346c2779d4b6490c201312997762020d4e0a79bda2c49",
+  "passed": true,
+  "inputs": 64,
+  "producer_max_abs": 2.384185791015625e-07,
+  "raw_action_max_abs": 3.516674041748047e-06,
+  "joint_target_max_abs": 8.791685104370117e-07,
+  "final_onnx_sha256": "f4c0ee6557197a499f349e222fca079ece44ca4f866192ddc141acd6c92e2a1c",
+  "checkpoint_sha256": "95ed9bab1f933acdd1b14e91b72ba791f6994fd60a37f76d450c5cd69a942079",
+  "torch": "2.11.0+cu130",
+  "onnx": "1.22.0",
+  "ort": "1.29.0",
+  "package_validation": {
+    "package": "supermimic-zita-mini3-seed0",
+    "version": "1.0.0",
+    "interface_id": "sha256:e36e6d99d6e93866a880d3ae1ec729ddfe43108c6451f4c2e971d0aac0c61c0e",
+    "package_id": "sha256:95e92bb8e556ab6171f0e49b3fe2bc3a498156b6bbdcc5ca2230e655b4a3a8f8",
+    "checks": {
+      "schema": "pass",
+      "semantic": "pass",
+      "artifacts": "pass",
+      "onnx": "pass",
+      "golden_tests": "pass"
+    }
+  }
+}

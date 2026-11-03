@@ -1,0 +1,14 @@
+{
+  "iteration": 221158,
+  "sim_transitions": 2264920064,
+  "counts": {
+    "wm_updates": 2211580,
+    "policy_updates": 220658,
+    "critic_updates": 4413160,
+    "imagined_steps": 28922085376
+  },
+  "wall_seconds": 158122.04086899757,
+  "peak_torch_allocated_bytes": 20218976768,
+  "peak_torch_reserved_bytes": 22252879872,
+  "peak_main_process_rss_bytes": 7591137280
+}
