@@ -23,3 +23,7 @@ resume默认读取新run/training下的完整恢复文件（Cuboi ckpt_latest.pt
 ## 历史已完成实验
 
 Cuboi run终点320000，交付同一候选；zita在221158预算结束，交付161203。实际计数和资源见evidence与LOGGING；配置语义不同，不能用nativeiteration直接比效率。完整训练日志仍在CPFS。单seed结果不证明多seed稳定性；Mini3平地成绩不直接证明G1或感知WBC能力。
+
+## 配置来源补充
+
+recorded-formal.json记录终段启动参数；selected-checkpoint.json保存本次交付权重的内嵌配置。zita选中点的checkpoint_seconds为7200秒，终段因预算收口为6909.611607827246秒，launcher可视化字段也有差异；核心训练超参相同。新formal配方保持7200秒常规分段，不能把末段参数冒充选中点原始配置。

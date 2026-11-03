@@ -9,3 +9,7 @@
 ## 统一 Contract 链路复查
 
 同日后续已完成从选中checkpoint重新导出、每套64步source parity、schema/semantic/hash/golden tests、独立consumer及各4条完整动作的CPU闭环与轨迹复算。修复Cuboi导出环境覆盖冲突；两份ONNX与历史正式包字节一致。详见[Contract链路](CONTRACT_PIPELINE.md)与evidence/contract-pipeline-check-20261103.json。未重跑Full-6000、未启动GPU训练。
+
+## GitHub Release复核
+
+本次从远端重新clone，检查文档、源码与选中checkpoint内嵌配置。Release的6个附件均做上传后下载及SHA256核对；下载checkpoint重新导出、下载ONNX包独立验包／CPU回放通过。评测入口新增强制contract验包和冻结依赖源码哈希门；篡改package ID的负例在仿真前被拒绝。完整回执见evidence/github-release-audit-20261103.json。全新环境重建、从零重训与Full-6000重跑不在本次验收范围。

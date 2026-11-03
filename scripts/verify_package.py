@@ -10,6 +10,8 @@ import numpy as np
 import onnxruntime as ort
 
 D = Path('/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1')
+from runtime_contract import verify_runtime_sources
+RUNTIME_IDENTITY = verify_runtime_sources()
 sys.path.insert(0, str(D / 'contract-tooling/tools'))
 from onnx_contract import validate_package
 from teleop_evaluator.artifacts import ArtifactBundle
@@ -65,7 +67,7 @@ def main():
     adapter.close()
     producers = verify_producers(args.package, validation, adapter.backend)
     print(json.dumps({
-        'passed': True, 'package': str(args.package),
+        'passed': True, 'package': str(args.package), 'runtime_identity': RUNTIME_IDENTITY,
         'validation': validation, 'adapter': schema.adapter_id,
         'backend': adapter.backend, 'mujoco': mujoco.__version__,
         'ort': ort.__version__, 'training_framework_imported': 'torch' in sys.modules,

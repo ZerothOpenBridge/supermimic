@@ -2,7 +2,7 @@
 
 这是我们实际训练使用的Mini3适配源码快照；对应另一实现见[cuboi分支](https://github.com/ZerothOpenBridge/supermimic/tree/cuboi)，共同导航见[main](https://github.com/ZerothOpenBridge/supermimic/tree/main)。本分支不是上游G1默认示例。
 
-**先读：[先导](docs/INTRODUCTION.md) · [环境](docs/ENVIRONMENT.md) · [训练](docs/TRAINING.md) · [日志](docs/LOGGING.md) · [CPFS数据与权重](docs/CPFS_ASSETS.md) · [Contract链路](docs/CONTRACT_PIPELINE.md) · [本次验收范围](docs/VALIDATION.md)**
+**先读：[先导](docs/INTRODUCTION.md) · [环境](docs/ENVIRONMENT.md) · [训练](docs/TRAINING.md) · [日志](docs/LOGGING.md) · [CPFS数据与权重](docs/CPFS_ASSETS.md) · [权重与复现](docs/WEIGHTS.md) · [Contract链路](docs/CONTRACT_PIPELINE.md) · [本次验收范围](docs/VALIDATION.md)**
 
 ## 快速开始：复用已部署环境
 
@@ -47,4 +47,6 @@ python3 scripts/run.py evaluate --run-id colleague-contract-smoke-r1 \
 
 `configs/recorded-formal.json`是实际run保存配置（可能含历史resume路径），仅用于审阅；`configs/formal.json`用于新启动，resume已清空。`provenance/native-source-sha256.json`记录与2026-11-03服务器逐文件一致的模块源码。原上游README见docs/UPSTREAM_README.md，许可证保留。Cuboi原导出tree含AppleDouble元数据，仓库移除这些非代码文件，另外保留原导出tree与干净代码tree两个哈希。
 
-数据、机器人资产、checkpoint、ONNX、完整日志、容器、缓存不在Git。当前native Mini3适配固定从`/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/control/control.json`读取本体；更换资产根/机器人必须显式适配并重做FK和接口验收。
+Git历史不包含二进制大文件；两份选中的checkpoint和完整ONNX包位于本仓库[Release](https://github.com/ZerothOpenBridge/supermimic/releases/tag/mini3-seed0-v1)，下载脚本、SHA256和复现范围见[权重与复现](docs/WEIGHTS.md)。数据、机器人资产、完整恢复文件、完整日志、容器和缓存仍在CPFS。当前native Mini3适配固定从`/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/control/control.json`读取本体；更换资产根/机器人必须显式适配并重做FK和接口验收。
+
+`configs/selected-checkpoint.json`另外保留交付checkpoint自己的配置；`recorded-formal.json`来自训练终段。zita在保存间隔和部分launcher字段上有差异，核心训练超参一致，详见权重复核回执。

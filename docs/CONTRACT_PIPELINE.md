@@ -1,12 +1,12 @@
 # ONNX 与统一 Contract 评测链路
 
-2026-11-03 实际检查。两套 Mini3 复现都沿用已有的 `robot-policy-onnx` v1.0 协议，通过 `adapter=supermimic` 交给冻结的统一 evaluator。机器可读回执见 [链路检查结果](../evidence/contract-pipeline-check-20261103.json)。
+2026-11-03 实际检查。两套 Mini3 复现都沿用我们内部的 `robot-policy-onnx` v1.0 协议，通过 `adapter=supermimic` 交给冻结的统一 evaluator。机器可读回执见 [链路检查结果](../evidence/contract-pipeline-check-20261103.json)。
 
 ## 流程与交付边界
 
 选中的 checkpoint → 原生环境中的 FP32 actor 导出 → `policy.onnx`＋`onnx_contract.yaml`＋`tests/` → 独立 consumer 验包 → CPU MuJoCo 闭环评测。
 
-交付时复制整个 package 目录，不只复制 ONNX。contract 声明图、特征生产器与布局、时间窗口、关节顺序、动作变换、机器人兼容性、文件哈希、interface ID、package ID 和 golden tests。源端 parity JSON 与 raw-to-feature 测试向量在包的同级目录，供额外审计；运行期只需要完整 package。它们均留 CPFS。
+交付时复制整个 package 目录，不只复制 ONNX。contract 声明图、特征生产器与布局、时间窗口、关节顺序、动作变换、机器人兼容性、文件哈希、interface ID、package ID 和 golden tests。源端 parity JSON 与 raw-to-feature 测试向量在包的同级目录，供额外审计；运行期只需要完整 package。它们在CPFS保留，同时在本仓库Release提供可校验副本，见[权重与复现](WEIGHTS.md)。
 
 世界模型、critic、optimizer 和 replay 不进入部署图。encoder/decoder、actor 及推理所需的归一化保留在单个 FP32、静态 batch=1 的图中。zita 在导出前关闭 bf16 autocast，保留训练得到的 RunningNorm 状态。
 
@@ -80,3 +80,7 @@ zita 分支使用 `.../zita/formal-seed0-r1/ckpt_161203.pt`，包路径中的实
 ## 后续增加感知输入
 
 当前 contract 的严格布局只支持这两套 Mini3 动作跟踪 actor。新增相机、视觉历史、场景参考或网络结构时，要声明相应输入、时间戳／坐标／单位、producer 与兼容版本，并同步 consumer；不能补零假装原接口兼容。应重新做 source parity、golden tests、物理闭环与任务输入干预检查，再与 blind baseline 比较。
+
+## 发布前进一步加固
+
+导出／验包／评测现在逐文件验证冻结evaluator的61个文件及contract工具/schema的5个文件。evaluate入口自身强制执行完整验包，不能跳过canonical ID、文件哈希或golden tests。GitHub附件下载回读后已重新导出并回放；结果和配置差异见[发布复核回执](../evidence/github-release-audit-20261103.json)。

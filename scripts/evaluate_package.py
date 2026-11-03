@@ -1,6 +1,7 @@
 """Frozen common Mini3 evaluator; an explicit clip subset is an interface check."""
 import argparse
 import json
+import sys
 from pathlib import Path
 
 import mujoco
@@ -9,6 +10,10 @@ import yaml
 from teleop_evaluator.api import EvaluationRequest, evaluate
 
 D = Path('/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1')
+from runtime_contract import verify_runtime_sources
+RUNTIME_IDENTITY = verify_runtime_sources()
+sys.path.insert(0, str(D / 'contract-tooling/tools'))
+from onnx_contract import validate_package
 
 
 def main():
@@ -27,6 +32,9 @@ def main():
     if not args.output.parent.is_dir():
         raise FileNotFoundError(args.output.parent)
     assert mujoco.__version__ == '3.12.0' and onnxruntime.__version__ == '1.29.0'
+    # Never rely on an earlier manual verify step: reject invalid canonical IDs,
+    # file hashes, graph signatures and golden outputs before physics starts.
+    package_validation = validate_package(args.package, run_tests=True)
     config = args.output.parent / 'ort-one-thread.yaml'
     config.write_text('ort_intra_op_threads: 1\nort_inter_op_threads: 1\n'
                       'ort_execution_mode: sequential\nort_graph_optimization: basic\n')
@@ -51,7 +59,7 @@ def main():
     assert all(r['status'] in ('completed', 'failed') for r in rows), 'Technical errors'
     if args.clip:
         assert {r['clip_id'] for r in rows} == set(args.clip), 'Clip filter changed'
-    receipt = {'passed': True, 'tasks': len(rows), 'clips': args.clip,
+    receipt = {'passed': True, 'package_validation': package_validation, 'runtime_identity': RUNTIME_IDENTITY, 'tasks': len(rows), 'clips': args.clip,
         'full6000': not bool(args.clip), 'summary': result.summary,
         'package_id': contract['package']['package_id'],
         'interface_id': contract['package']['interface_id'],

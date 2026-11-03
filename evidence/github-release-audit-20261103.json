@@ -1,0 +1,561 @@
+{
+  "date": "2026-11-03",
+  "repository": "ZerothOpenBridge/supermimic",
+  "private_verified": true,
+  "release_tag": "mini3-seed0-v1",
+  "fresh_remote_clone": {
+    "audit_root": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/github-release-check-20261103",
+    "remote_commits": {
+      "main": "6ca8b56ebbbe8851a884c91731faf709d262033c",
+      "cuboi": "b976aaba82c21706aa23b53d1ba30d15bbf157e8",
+      "zita": "ddfda275a8a5b4e9388ad32c6bbea5021ab8de93"
+    },
+    "markdown_issues": {
+      "main": [],
+      "cuboi": [],
+      "zita": []
+    },
+    "source_files": {}
+  },
+  "all_assets_downloaded_and_sha256_verified": true,
+  "asset_readback": [
+    {
+      "id": 705137732,
+      "name": "cuboi-mini3-seed0-iter320000.pt",
+      "size": 67925715,
+      "digest": "sha256:f6c2c296a1c1c3ea164041d7c0f886cad2047ac51f4d7311aacc393cd64d9331",
+      "browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/cuboi-mini3-seed0-iter320000.pt"
+    },
+    {
+      "id": 705137753,
+      "name": "cuboi-mini3-seed0-onnx.tar.gz",
+      "size": 30113601,
+      "digest": "sha256:a3f2cbcad0665d6e2117a6ba3b1e706a400ba6d19398f841432d82a1efaed69d",
+      "browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/cuboi-mini3-seed0-onnx.tar.gz"
+    },
+    {
+      "id": 705142083,
+      "name": "model-manifest.json",
+      "size": 2852,
+      "digest": "sha256:1f593447e21e07da7c94654f03645163f49422eef51a74e0db9d9a56e50de536",
+      "browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/model-manifest.json"
+    },
+    {
+      "id": 705142157,
+      "name": "SHA256SUMS",
+      "size": 472,
+      "digest": "sha256:cdbe6b62c177b0bdf8771312cb879f49b224228d48b7463a3ac243bc356e5a91",
+      "browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/SHA256SUMS"
+    },
+    {
+      "id": 705137733,
+      "name": "zita-mini3-seed0-iter161203.pt",
+      "size": 68102341,
+      "digest": "sha256:95ed9bab1f933acdd1b14e91b72ba791f6994fd60a37f76d450c5cd69a942079",
+      "browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/zita-mini3-seed0-iter161203.pt"
+    },
+    {
+      "id": 705137755,
+      "name": "zita-mini3-seed0-onnx.tar.gz",
+      "size": 31016487,
+      "digest": "sha256:5cbc81afe67dc7f743a5261a112befecf1bc9d3be85d8cfc13030a47bd66582f",
+      "browser_download_url": "https://github.com/ZerothOpenBridge/supermimic/releases/download/untagged-37797b10a8a7641ef168/zita-mini3-seed0-onnx.tar.gz"
+    }
+  ],
+  "model_assets_sha256": {
+    "cuboi-mini3-seed0-iter320000.pt": "f6c2c296a1c1c3ea164041d7c0f886cad2047ac51f4d7311aacc393cd64d9331",
+    "cuboi-mini3-seed0-onnx.tar.gz": "a3f2cbcad0665d6e2117a6ba3b1e706a400ba6d19398f841432d82a1efaed69d",
+    "zita-mini3-seed0-iter161203.pt": "95ed9bab1f933acdd1b14e91b72ba791f6994fd60a37f76d450c5cd69a942079",
+    "zita-mini3-seed0-onnx.tar.gz": "5cbc81afe67dc7f743a5261a112befecf1bc9d3be85d8cfc13030a47bd66582f"
+  },
+  "negative_contract_gate": {
+    "cuboi": {
+      "tampered_canonical_package_id_rejected": true,
+      "evaluation_not_started": true
+    },
+    "zita": {
+      "tampered_canonical_package_id_rejected": true,
+      "evaluation_not_started": true
+    }
+  },
+  "credential_scan_passed": true,
+  "bad_local_checksum_rejected": true,
+  "full_environment_rebuilt": false,
+  "training_restarted": false,
+  "gpu_jobs_started": 0,
+  "models": {
+    "cuboi": {
+      "native_source_files_unchanged": true,
+      "checkpoint_iteration": 320000,
+      "core_training_hyperparameters_match": true,
+      "selected_vs_terminal_runtime_differences": {},
+      "runtime_difference_note": "recorded-formal.json is the terminal segment; selected-checkpoint.json preserves the selected checkpoint's own configuration. Save cadence and launcher flags differ for zita; no bitwise-training claim.",
+      "preflight": {
+        "passed": true,
+        "backend": "cuboi",
+        "python": "3.12.13 (main, Jun  2 2026, 22:27:15) [Clang 22.1.3 ]",
+        "imported_source": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/github-release-check-20261103/checkouts/cuboi/src/supermimic",
+        "joint_count": 21,
+        "control_sha256": "5889e9a87dfa985f1800f6ed4b66dd6b872b41c9340e069e77cf4958ee031c2f",
+        "versions": {
+          "torch": "2.14.1+cu130",
+          "mujoco": "3.16.0",
+          "warp-lang": "1.18.0",
+          "numpy": "2.5.4",
+          "scipy": "1.18.1"
+        },
+        "cuda_visible_devices": "",
+        "large_data_loaded": false,
+        "gpu_simulation_started": false
+      },
+      "cpu_fk": {
+        "backend": "cuboi",
+        "samples": 128,
+        "max_absolute_error": {
+          "position": 3.6353130539179546e-07,
+          "rotation_matrix": 1.6107317670766008e-06,
+          "linear_velocity": 1.1700252733337635e-06,
+          "angular_velocity": 3.393283171337913e-06
+        },
+        "gradient_finite": true,
+        "passed": true,
+        "mujoco": "3.16.0"
+      },
+      "github_checkpoint_reexport": {
+        "backend": "cuboi",
+        "checkpoint": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/github-release-check-20261103/readback/cuboi-mini3-seed0-iter320000.pt",
+        "iteration": 320000,
+        "strict_state_dict_keys": 22,
+        "tolerance": {
+          "absolute": 1e-05,
+          "relative": 1e-05
+        },
+        "cases": [
+          {
+            "id": "reset20",
+            "ticks": 20,
+            "producer_conformance": "policy-package-reset20-producer-conformance.npz",
+            "producer_conformance_sha256": "c50dabb5db0104179d672d094e24b16e7c45448ccfd09ffe490c1cbe6851f97b"
+          },
+          {
+            "id": "turning22",
+            "ticks": 22,
+            "producer_conformance": "policy-package-turning22-producer-conformance.npz",
+            "producer_conformance_sha256": "839a74e37c9d10c47e2da0e7d3e42b394037be0aed865cba889a599f54204c67"
+          },
+          {
+            "id": "boundary22",
+            "ticks": 22,
+            "producer_conformance": "policy-package-boundary22-producer-conformance.npz",
+            "producer_conformance_sha256": "a010f9dddec9a65f0045be05964958d5497a4eed667bdc60c63efd3b462cd4e0"
+          }
+        ],
+        "network_only_latency_ms": {
+          "mean": 0.8816163241863251,
+          "p50": 0.8805375546216965,
+          "p95": 0.8863617666065693,
+          "provider": "CPUExecutionProvider",
+          "threads": 1,
+          "warmup": 30,
+          "samples": 100,
+          "end_to_end_teleop": null
+        },
+        "source_variant_tree_sha256": "e77b28cf3bd91b7bb730caf638112c0d3acd6fa10efd44e72f2095f2b61b2ff5",
+        "exporter_sha256": "b3b36b7715199e3bb0a7e2f90725b1d2cfef50599d4d9746a3d1001beebf0c8e",
+        "passed": true,
+        "inputs": 64,
+        "producer_max_abs": 1.1920928955078125e-07,
+        "raw_action_max_abs": 1.6093254089355469e-06,
+        "joint_target_max_abs": 4.023313522338867e-07,
+        "final_onnx_sha256": "557a8843c460e616d3c819560e2613d0d5a72a85d031cdaf1a42da3a5f52dcbc",
+        "checkpoint_sha256": "f6c2c296a1c1c3ea164041d7c0f886cad2047ac51f4d7311aacc393cd64d9331",
+        "runtime_identity": {
+          "evaluator": "c4bb87cb57c99b5906393ea30b2f7a9c2ecaa2bbf99bbc5cca63bd20cdd1df72",
+          "evaluator_files": 61,
+          "contract_tooling_files": 5,
+          "sha256_verified": true
+        },
+        "torch": "2.14.1+cu130",
+        "onnx": "1.23.2",
+        "ort": "1.29.0",
+        "export_mujoco": "3.16.0",
+        "export_mujoco_module": "/mnt/cpfs/workspace/yxq/supermimic/cuboi/.venv/lib/python3.12/site-packages/mujoco/__init__.py",
+        "package_validation": {
+          "package": "supermimic-cuboi-mini3-seed0",
+          "version": "1.0.0",
+          "interface_id": "sha256:eef0004af0339e3c69c818054826f049f9e11657b5f914951adc0eceab8be3e5",
+          "package_id": "sha256:c274c4ca565673412e9bbf4a453b3a72efa5d1462cc1de829bf06923355e9d93",
+          "checks": {
+            "schema": "pass",
+            "semantic": "pass",
+            "artifacts": "pass",
+            "onnx": "pass",
+            "golden_tests": "pass"
+          }
+        }
+      },
+      "github_onnx_consumer": {
+        "passed": true,
+        "package": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/github-release-check-20261103/readback/cuboi-mini3-seed0/policy-package",
+        "runtime_identity": {
+          "evaluator": "c4bb87cb57c99b5906393ea30b2f7a9c2ecaa2bbf99bbc5cca63bd20cdd1df72",
+          "evaluator_files": 61,
+          "contract_tooling_files": 5,
+          "sha256_verified": true
+        },
+        "validation": {
+          "package": "supermimic-cuboi-mini3-seed0",
+          "version": "1.0.0",
+          "interface_id": "sha256:eef0004af0339e3c69c818054826f049f9e11657b5f914951adc0eceab8be3e5",
+          "package_id": "sha256:c274c4ca565673412e9bbf4a453b3a72efa5d1462cc1de829bf06923355e9d93",
+          "checks": {
+            "schema": "pass",
+            "semantic": "pass",
+            "artifacts": "pass",
+            "onnx": "pass",
+            "golden_tests": "pass"
+          }
+        },
+        "adapter": "supermimic",
+        "backend": "cuboi",
+        "mujoco": "3.12.0",
+        "ort": "1.29.0",
+        "training_framework_imported": false,
+        "native_supermimic_imported": false,
+        "producer_conformance": {
+          "status": "passed",
+          "ticks": 64,
+          "maximum_absolute_error": 1.1920928955078125e-07,
+          "report": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/github-release-check-20261103/readback/cuboi-mini3-seed0/policy-package-source-parity.json"
+        }
+      },
+      "github_onnx_evaluation": {
+        "passed": true,
+        "package_validation": {
+          "package": "supermimic-cuboi-mini3-seed0",
+          "version": "1.0.0",
+          "interface_id": "sha256:eef0004af0339e3c69c818054826f049f9e11657b5f914951adc0eceab8be3e5",
+          "package_id": "sha256:c274c4ca565673412e9bbf4a453b3a72efa5d1462cc1de829bf06923355e9d93",
+          "checks": {
+            "schema": "pass",
+            "semantic": "pass",
+            "artifacts": "pass",
+            "onnx": "pass",
+            "golden_tests": "pass"
+          }
+        },
+        "runtime_identity": {
+          "evaluator": "c4bb87cb57c99b5906393ea30b2f7a9c2ecaa2bbf99bbc5cca63bd20cdd1df72",
+          "evaluator_files": 61,
+          "contract_tooling_files": 5,
+          "sha256_verified": true
+        },
+        "tasks": 2,
+        "clips": [
+          "baby_full_diaper_walk_ff_180_start_R_002__A460_M",
+          "idle_crawl_stop_001__A214_M"
+        ],
+        "full6000": false,
+        "summary": {
+          "num_clips": 2,
+          "mean_progress": 0.801219512195122,
+          "median_progress": 0.801219512195122,
+          "min_progress": 0.6024390243902439,
+          "survival_rate": 0.5,
+          "success_rate": 0.5,
+          "termination_counts": {
+            "completed": 1,
+            "fallen": 1
+          },
+          "grade_counts": {
+            "good": 1,
+            "bad": 1
+          },
+          "mean_local_kpt_mae": 15.960941300222206,
+          "std_local_kpt_mae": 9.929652814281074,
+          "median_local_kpt_mae": 15.960941300222206,
+          "p10_local_kpt_mae": 8.017219048797347,
+          "p90_local_kpt_mae": 23.904663551647065,
+          "worst_local_kpt_mae": 25.89059411450328,
+          "mean_local_kpt_mae_fresh_mm": 15.959937278545189,
+          "std_local_kpt_mae_fresh_mm": 9.928250664202595,
+          "median_local_kpt_mae_fresh_mm": 15.959937278545189,
+          "p10_local_kpt_mae_fresh_mm": 8.017336747183112,
+          "p90_local_kpt_mae_fresh_mm": 23.902537809907265,
+          "worst_local_kpt_mae_fresh_mm": 25.888187942747784,
+          "mean_local_mpjpe_fresh_mm": 33.003420298180295,
+          "std_local_mpjpe_fresh_mm": 20.306483058888528,
+          "median_local_mpjpe_fresh_mm": 33.003420298180295,
+          "p10_local_mpjpe_fresh_mm": 16.758233851069473,
+          "p90_local_mpjpe_fresh_mm": 49.24860674529111,
+          "worst_local_mpjpe_fresh_mm": 53.30990335706882,
+          "mean_world_root_xy_m": 0.06665034397990358,
+          "std_world_root_xy_m": 0.039000940132792615,
+          "median_world_root_xy_m": 0.06665034397990358,
+          "p10_world_root_xy_m": 0.03544959187366948,
+          "p90_world_root_xy_m": 0.09785109608613766,
+          "worst_world_root_xy_m": 0.10565128411269618,
+          "mean_world_root_yaw_rad": 0.38521210609822365,
+          "std_world_root_yaw_rad": 0.3604243343208816,
+          "median_world_root_yaw_rad": 0.38521210609822365,
+          "p10_world_root_yaw_rad": 0.09687263864151838,
+          "p90_world_root_yaw_rad": 0.6735515735549289,
+          "worst_world_root_yaw_rad": 0.7456364404191053
+        },
+        "package_id": "sha256:c274c4ca565673412e9bbf4a453b3a72efa5d1462cc1de829bf06923355e9d93",
+        "interface_id": "sha256:eef0004af0339e3c69c818054826f049f9e11657b5f914951adc0eceab8be3e5",
+        "evaluator_identity": "c4bb87cb57c99b5906393ea30b2f7a9c2ecaa2bbf99bbc5cca63bd20cdd1df72",
+        "mujoco": "3.12.0",
+        "ort": "1.29.0",
+        "workers": 1,
+        "ort_threads": 1,
+        "traces": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/github-release-check-20261103/runs/cuboi/readback-v1/evaluation/scoring-traces"
+      }
+    },
+    "zita": {
+      "native_source_files_unchanged": true,
+      "checkpoint_iteration": 161203,
+      "core_training_hyperparameters_match": true,
+      "selected_vs_terminal_runtime_differences": {
+        "kit_visualizer": {
+          "checkpoint": false,
+          "recorded": null
+        },
+        "enable_cameras": {
+          "checkpoint": false,
+          "recorded": null
+        },
+        "checkpoint_seconds": {
+          "checkpoint": 7200.0,
+          "recorded": 6909.611607827246
+        },
+        "livestream": {
+          "checkpoint": 0,
+          "recorded": -1
+        }
+      },
+      "runtime_difference_note": "recorded-formal.json is the terminal segment; selected-checkpoint.json preserves the selected checkpoint's own configuration. Save cadence and launcher flags differ for zita; no bitwise-training claim.",
+      "preflight": {
+        "passed": true,
+        "backend": "zita",
+        "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "imported_source": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/github-release-check-20261103/checkouts/zita/supermimic",
+        "joint_count": 21,
+        "control_sha256": "5889e9a87dfa985f1800f6ed4b66dd6b872b41c9340e069e77cf4958ee031c2f",
+        "versions": {
+          "torch": "2.11.0+cu130",
+          "mujoco": "3.15.0",
+          "warp-lang": "1.17.0",
+          "numpy": "2.5.1",
+          "scipy": "1.17.0"
+        },
+        "cuda_visible_devices": "",
+        "large_data_loaded": false,
+        "gpu_simulation_started": false
+      },
+      "cpu_fk": {
+        "backend": "zita",
+        "samples": 128,
+        "max_absolute_error": {
+          "position": 1.2266312598985252e-07,
+          "rotation_matrix": 2.8971964260993133e-07,
+          "linear_velocity": 4.41144956120354e-07,
+          "angular_velocity": 7.89035246029357e-07
+        },
+        "gradient_finite": true,
+        "passed": true,
+        "mujoco": "3.15.0"
+      },
+      "github_checkpoint_reexport": {
+        "backend": "zita",
+        "checkpoint": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/github-release-check-20261103/readback/zita-mini3-seed0-iter161203.pt",
+        "iteration": 161203,
+        "strict_state_dict_keys": 26,
+        "tolerance": {
+          "absolute": 1e-05,
+          "relative": 1e-05
+        },
+        "cases": [
+          {
+            "id": "reset20",
+            "ticks": 20,
+            "producer_conformance": "policy-package-reset20-producer-conformance.npz",
+            "producer_conformance_sha256": "e0b314b47f3ecea410b4cd4a8a49e51749241c3b587f776833ada178b5e1450f"
+          },
+          {
+            "id": "turning22",
+            "ticks": 22,
+            "producer_conformance": "policy-package-turning22-producer-conformance.npz",
+            "producer_conformance_sha256": "ff4c15330087c00977b13f0f566b87cc48a78040c55b2812ba225bdd9eddb90f"
+          },
+          {
+            "id": "boundary22",
+            "ticks": 22,
+            "producer_conformance": "policy-package-boundary22-producer-conformance.npz",
+            "producer_conformance_sha256": "fbe120eb9de85a17692656ceb5f1f23f856143f60764b7795c8829daeca9d23b"
+          }
+        ],
+        "network_only_latency_ms": {
+          "mean": 0.9893860574811697,
+          "p50": 0.9889975190162659,
+          "p95": 0.993061438202858,
+          "provider": "CPUExecutionProvider",
+          "threads": 1,
+          "warmup": 30,
+          "samples": 100,
+          "end_to_end_teleop": null
+        },
+        "source_variant_tree_sha256": "17170c73bde87aa4e387fe117a4c4cf6534edcf9642103442f8a580333476e32",
+        "exporter_sha256": "b3b36b7715199e3bb0a7e2f90725b1d2cfef50599d4d9746a3d1001beebf0c8e",
+        "passed": true,
+        "inputs": 64,
+        "producer_max_abs": 2.384185791015625e-07,
+        "raw_action_max_abs": 3.516674041748047e-06,
+        "joint_target_max_abs": 8.791685104370117e-07,
+        "final_onnx_sha256": "f4c0ee6557197a499f349e222fca079ece44ca4f866192ddc141acd6c92e2a1c",
+        "checkpoint_sha256": "95ed9bab1f933acdd1b14e91b72ba791f6994fd60a37f76d450c5cd69a942079",
+        "runtime_identity": {
+          "evaluator": "c4bb87cb57c99b5906393ea30b2f7a9c2ecaa2bbf99bbc5cca63bd20cdd1df72",
+          "evaluator_files": 61,
+          "contract_tooling_files": 5,
+          "sha256_verified": true
+        },
+        "torch": "2.11.0+cu130",
+        "onnx": "1.22.0",
+        "ort": "1.29.0",
+        "export_mujoco": "3.15.0",
+        "export_mujoco_module": "/opt/isaaclab-venv/lib/python3.12/site-packages/mujoco/__init__.py",
+        "package_validation": {
+          "package": "supermimic-zita-mini3-seed0",
+          "version": "1.0.0",
+          "interface_id": "sha256:e36e6d99d6e93866a880d3ae1ec729ddfe43108c6451f4c2e971d0aac0c61c0e",
+          "package_id": "sha256:95e92bb8e556ab6171f0e49b3fe2bc3a498156b6bbdcc5ca2230e655b4a3a8f8",
+          "checks": {
+            "schema": "pass",
+            "semantic": "pass",
+            "artifacts": "pass",
+            "onnx": "pass",
+            "golden_tests": "pass"
+          }
+        }
+      },
+      "github_onnx_consumer": {
+        "passed": true,
+        "package": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/github-release-check-20261103/readback/zita-mini3-seed0/policy-package",
+        "runtime_identity": {
+          "evaluator": "c4bb87cb57c99b5906393ea30b2f7a9c2ecaa2bbf99bbc5cca63bd20cdd1df72",
+          "evaluator_files": 61,
+          "contract_tooling_files": 5,
+          "sha256_verified": true
+        },
+        "validation": {
+          "package": "supermimic-zita-mini3-seed0",
+          "version": "1.0.0",
+          "interface_id": "sha256:e36e6d99d6e93866a880d3ae1ec729ddfe43108c6451f4c2e971d0aac0c61c0e",
+          "package_id": "sha256:95e92bb8e556ab6171f0e49b3fe2bc3a498156b6bbdcc5ca2230e655b4a3a8f8",
+          "checks": {
+            "schema": "pass",
+            "semantic": "pass",
+            "artifacts": "pass",
+            "onnx": "pass",
+            "golden_tests": "pass"
+          }
+        },
+        "adapter": "supermimic",
+        "backend": "zita",
+        "mujoco": "3.12.0",
+        "ort": "1.29.0",
+        "training_framework_imported": false,
+        "native_supermimic_imported": false,
+        "producer_conformance": {
+          "status": "passed",
+          "ticks": 64,
+          "maximum_absolute_error": 2.384185791015625e-07,
+          "report": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/github-release-check-20261103/readback/zita-mini3-seed0/policy-package-source-parity.json"
+        }
+      },
+      "github_onnx_evaluation": {
+        "passed": true,
+        "package_validation": {
+          "package": "supermimic-zita-mini3-seed0",
+          "version": "1.0.0",
+          "interface_id": "sha256:e36e6d99d6e93866a880d3ae1ec729ddfe43108c6451f4c2e971d0aac0c61c0e",
+          "package_id": "sha256:95e92bb8e556ab6171f0e49b3fe2bc3a498156b6bbdcc5ca2230e655b4a3a8f8",
+          "checks": {
+            "schema": "pass",
+            "semantic": "pass",
+            "artifacts": "pass",
+            "onnx": "pass",
+            "golden_tests": "pass"
+          }
+        },
+        "runtime_identity": {
+          "evaluator": "c4bb87cb57c99b5906393ea30b2f7a9c2ecaa2bbf99bbc5cca63bd20cdd1df72",
+          "evaluator_files": 61,
+          "contract_tooling_files": 5,
+          "sha256_verified": true
+        },
+        "tasks": 2,
+        "clips": [
+          "baby_full_diaper_walk_ff_180_start_R_002__A460_M",
+          "idle_crawl_stop_001__A214_M"
+        ],
+        "full6000": false,
+        "summary": {
+          "num_clips": 2,
+          "mean_progress": 0.8060975609756098,
+          "median_progress": 0.8060975609756098,
+          "min_progress": 0.6121951219512195,
+          "survival_rate": 0.5,
+          "success_rate": 0.5,
+          "termination_counts": {
+            "completed": 1,
+            "fallen": 1
+          },
+          "grade_counts": {
+            "good": 1,
+            "bad": 1
+          },
+          "mean_local_kpt_mae": 19.456216165082438,
+          "std_local_kpt_mae": 13.362441625177444,
+          "median_local_kpt_mae": 19.456216165082438,
+          "p10_local_kpt_mae": 8.766262864940485,
+          "p90_local_kpt_mae": 30.146169465224396,
+          "worst_local_kpt_mae": 32.818657790259884,
+          "mean_local_kpt_mae_fresh_mm": 19.432405924239315,
+          "std_local_kpt_mae_fresh_mm": 13.38199293379851,
+          "median_local_kpt_mae_fresh_mm": 19.432405924239315,
+          "p10_local_kpt_mae_fresh_mm": 8.726811577200507,
+          "p90_local_kpt_mae_fresh_mm": 30.138000271278123,
+          "worst_local_kpt_mae_fresh_mm": 32.814398858037826,
+          "mean_local_mpjpe_fresh_mm": 40.14492610038609,
+          "std_local_mpjpe_fresh_mm": 27.212718422150203,
+          "median_local_mpjpe_fresh_mm": 40.14492610038609,
+          "p10_local_mpjpe_fresh_mm": 18.374751362665926,
+          "p90_local_mpjpe_fresh_mm": 61.91510083810625,
+          "worst_local_mpjpe_fresh_mm": 67.35764452253629,
+          "mean_world_root_xy_m": 0.23043610139314058,
+          "std_world_root_xy_m": 0.20628227510751862,
+          "median_world_root_xy_m": 0.23043610139314058,
+          "p10_world_root_xy_m": 0.0654102813071257,
+          "p90_world_root_xy_m": 0.3954619214791555,
+          "worst_world_root_xy_m": 0.4367183765006592,
+          "mean_world_root_yaw_rad": 0.43062476972031166,
+          "std_world_root_yaw_rad": 0.4122349045906661,
+          "median_world_root_yaw_rad": 0.43062476972031166,
+          "p10_world_root_yaw_rad": 0.10083684604777879,
+          "p90_world_root_yaw_rad": 0.7604126933928446,
+          "worst_world_root_yaw_rad": 0.8428596743109777
+        },
+        "package_id": "sha256:95e92bb8e556ab6171f0e49b3fe2bc3a498156b6bbdcc5ca2230e655b4a3a8f8",
+        "interface_id": "sha256:e36e6d99d6e93866a880d3ae1ec729ddfe43108c6451f4c2e971d0aac0c61c0e",
+        "evaluator_identity": "c4bb87cb57c99b5906393ea30b2f7a9c2ecaa2bbf99bbc5cca63bd20cdd1df72",
+        "mujoco": "3.12.0",
+        "ort": "1.29.0",
+        "workers": 1,
+        "ort_threads": 1,
+        "traces": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/github-release-check-20261103/runs/zita/readback-v1/evaluation/scoring-traces"
+      }
+    }
+  }
+}
