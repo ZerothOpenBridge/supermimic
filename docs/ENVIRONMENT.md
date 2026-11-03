@@ -6,7 +6,7 @@ Cuboi：CPFS根目录cuboi/.venv/bin/python；Python3.12.13、Torch2.14.1+cu130�
 
 脚本可用SM_PYTHON、SM_DOCKER_CLI、SM_CONTAINER覆盖解释器/容器。zita所选容器必须已经运行、挂载当前checkout、只暴露请求的那张物理GPU；CPU预检隐藏CUDA。不会启动、迁移、重建或重启现有Docker服务。需要其他GPU时新建独立容器，不能改正在使用的容器。
 
-CPU导出/统一评测另使用shared/data/mini3_v1/runtime/export-runtime与冻结evaluator；统一MuJoCo为3.12.0、ORT1.29.0。不要将训练后端版本与统一evaluator版本混为一谈；启动器只在export/evaluate加载这些额外依赖，原生train/preflight不加载它们。
+导出保留各自原生MuJoCo、mjlab和Torch的依赖优先级，export_policy.py在site-packages之后追加缺少的ONNX/ORT/contract工具；不能把统一MuJoCo3.12注入Cuboi原生导出。verify-package与evaluate则使用shared/data/mini3_v1/runtime/export-runtime及冻结evaluator，统一MuJoCo3.12.0、ORT1.29.0，并且不导入训练框架。原生train/preflight不加载这些统一评测覆盖包。链路实跑结果见CONTRACT_PIPELINE.md。
 
 ## 在新位置重建Cuboi
 

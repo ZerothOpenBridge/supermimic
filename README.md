@@ -2,7 +2,7 @@
 
 这是我们实际训练使用的Mini3适配源码快照；对应另一实现见[cuboi分支](https://github.com/ZerothOpenBridge/supermimic/tree/cuboi)，共同导航见[main](https://github.com/ZerothOpenBridge/supermimic/tree/main)。本分支不是上游G1默认示例。
 
-**先读：[先导](docs/INTRODUCTION.md) · [环境](docs/ENVIRONMENT.md) · [训练](docs/TRAINING.md) · [日志](docs/LOGGING.md) · [CPFS数据与权重](docs/CPFS_ASSETS.md) · [本次验收范围](docs/VALIDATION.md)**
+**先读：[先导](docs/INTRODUCTION.md) · [环境](docs/ENVIRONMENT.md) · [训练](docs/TRAINING.md) · [日志](docs/LOGGING.md) · [CPFS数据与权重](docs/CPFS_ASSETS.md) · [Contract链路](docs/CONTRACT_PIPELINE.md) · [本次验收范围](docs/VALIDATION.md)**
 
 ## 快速开始：复用已部署环境
 
@@ -33,11 +33,15 @@ python3 scripts/run.py resume --run-id colleague-seed0-r1 --gpu 0 --max-seconds 
 
 ```bash
 python3 scripts/run.py export --run-id colleague-seed0-r1
-python3 scripts/run.py evaluate --run-id colleague-seed0-r1 \
+python3 scripts/run.py verify-package --run-id colleague-seed0-r1 \
   --package /mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/runs/zita/colleague-seed0-r1/policy-package
+python3 scripts/run.py evaluate --run-id colleague-contract-smoke-r1 \
+  --package /mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/runs/zita/colleague-seed0-r1/policy-package --workers 2 \
+  --clip baby_full_diaper_walk_ff_180_start_R_002__A460_M \
+  --clip idle_crawl_stop_001__A214_M
 ```
 
-导出默认读取本新run的selection.json；未选模时必须显式给`--checkpoint`。CPU导出执行64组source parity和完整contract检查。统一评测为CPU、Full-6000、32 workers、ORT单线程，使用已部署冻结evaluator，不覆盖历史输出。不要先跑Full-6000再按结果改配方。
+导出默认读取本新run的selection.json；未选模时必须显式给`--checkpoint`。CPU导出执行64组source parity和完整contract检查。上面先做2条动作的小集合验收，保存逐帧轨迹；通过后用独立run ID、不传--clip，再做Full-6000。全量默认32 CPU workers、ORT单线程，使用已部署冻结evaluator。完整协议与实跑回执见Contract链路文档。不要先跑Full-6000再按结果改配方。
 
 ## 源码、环境与外部依赖
 

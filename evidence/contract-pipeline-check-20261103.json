@@ -1,0 +1,458 @@
+{
+  "date": "2026-11-03",
+  "audit_root": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/contract-check-20261103T172535",
+  "source_branch_commits_before_fix": {
+    "cuboi": "55456a26178ab228ef577a93978d6c9ed324eac5",
+    "zita": "6bba3bd66a384e2e661a0735442ecb3ee9fe090b"
+  },
+  "tested_scripts_sha256": {
+    "evaluate_package.py": "44c357a8916005b3217c71dada50b66e5188144a8d606579294d5d8304682bea",
+    "export_policy.py": "2ac2f02ce663a58b673b3b586df3132c77847787b949d64b95f1fa40742ca34f",
+    "run.py": "2afa029059a09654538f1175df00683b8434ae6f94ae194d4b07409fa177b239",
+    "verify_package.py": "399a2d0dfc38286feb880add5c746e317af3222b05b3bf62f75717d802b91343"
+  },
+  "finding": {
+    "backend": "cuboi",
+    "initial_export_failed": true,
+    "reason": "Frozen evaluation MuJoCo3.12 shadowed native MuJoCo3.16 required by mjlab/mujoco-warp",
+    "fixed": "Export retains native site-packages priority and appends missing export tools; evaluation uses frozen runtime"
+  },
+  "no_native_module_changes": true,
+  "gpu_jobs_started": 0,
+  "full6000_rerun": false,
+  "models": {
+    "cuboi": {
+      "export": {
+        "backend": "cuboi",
+        "checkpoint": "/mnt/cpfs/workspace/yxq/supermimic/experiments/mini3_v1/cuboi/formal-seed0-r1/candidate_0320000.pt",
+        "iteration": 320000,
+        "strict_state_dict_keys": 22,
+        "tolerance": {
+          "absolute": 1e-05,
+          "relative": 1e-05
+        },
+        "cases": [
+          {
+            "id": "reset20",
+            "ticks": 20,
+            "producer_conformance": "policy-package-reset20-producer-conformance.npz",
+            "producer_conformance_sha256": "c50dabb5db0104179d672d094e24b16e7c45448ccfd09ffe490c1cbe6851f97b"
+          },
+          {
+            "id": "turning22",
+            "ticks": 22,
+            "producer_conformance": "policy-package-turning22-producer-conformance.npz",
+            "producer_conformance_sha256": "839a74e37c9d10c47e2da0e7d3e42b394037be0aed865cba889a599f54204c67"
+          },
+          {
+            "id": "boundary22",
+            "ticks": 22,
+            "producer_conformance": "policy-package-boundary22-producer-conformance.npz",
+            "producer_conformance_sha256": "a010f9dddec9a65f0045be05964958d5497a4eed667bdc60c63efd3b462cd4e0"
+          }
+        ],
+        "network_only_latency_ms": {
+          "mean": 0.9237274713814259,
+          "p50": 0.892852433025837,
+          "p95": 0.8999912068247795,
+          "provider": "CPUExecutionProvider",
+          "threads": 1,
+          "warmup": 30,
+          "samples": 100,
+          "end_to_end_teleop": null
+        },
+        "source_variant_tree_sha256": "e77b28cf3bd91b7bb730caf638112c0d3acd6fa10efd44e72f2095f2b61b2ff5",
+        "exporter_sha256": "2ac2f02ce663a58b673b3b586df3132c77847787b949d64b95f1fa40742ca34f",
+        "passed": true,
+        "inputs": 64,
+        "producer_max_abs": 1.1920928955078125e-07,
+        "raw_action_max_abs": 1.6093254089355469e-06,
+        "joint_target_max_abs": 4.023313522338867e-07,
+        "final_onnx_sha256": "557a8843c460e616d3c819560e2613d0d5a72a85d031cdaf1a42da3a5f52dcbc",
+        "checkpoint_sha256": "f6c2c296a1c1c3ea164041d7c0f886cad2047ac51f4d7311aacc393cd64d9331",
+        "torch": "2.14.1+cu130",
+        "onnx": "1.23.2",
+        "ort": "1.29.0",
+        "export_mujoco": "3.16.0",
+        "export_mujoco_module": "/mnt/cpfs/workspace/yxq/supermimic/cuboi/.venv/lib/python3.12/site-packages/mujoco/__init__.py",
+        "package_validation": {
+          "package": "supermimic-cuboi-mini3-seed0",
+          "version": "1.0.0",
+          "interface_id": "sha256:eef0004af0339e3c69c818054826f049f9e11657b5f914951adc0eceab8be3e5",
+          "package_id": "sha256:c274c4ca565673412e9bbf4a453b3a72efa5d1462cc1de829bf06923355e9d93",
+          "checks": {
+            "schema": "pass",
+            "semantic": "pass",
+            "artifacts": "pass",
+            "onnx": "pass",
+            "golden_tests": "pass"
+          }
+        }
+      },
+      "independent_consumer": {
+        "passed": true,
+        "package": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/contract-check-20261103T172535/runs/cuboi/contract-audit-r2/policy-package",
+        "validation": {
+          "package": "supermimic-cuboi-mini3-seed0",
+          "version": "1.0.0",
+          "interface_id": "sha256:eef0004af0339e3c69c818054826f049f9e11657b5f914951adc0eceab8be3e5",
+          "package_id": "sha256:c274c4ca565673412e9bbf4a453b3a72efa5d1462cc1de829bf06923355e9d93",
+          "checks": {
+            "schema": "pass",
+            "semantic": "pass",
+            "artifacts": "pass",
+            "onnx": "pass",
+            "golden_tests": "pass"
+          }
+        },
+        "adapter": "supermimic",
+        "backend": "cuboi",
+        "mujoco": "3.12.0",
+        "ort": "1.29.0",
+        "training_framework_imported": false,
+        "native_supermimic_imported": false,
+        "producer_conformance": {
+          "status": "passed",
+          "ticks": 64,
+          "maximum_absolute_error": 1.1920928955078125e-07,
+          "report": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/contract-check-20261103T172535/runs/cuboi/contract-audit-r2/policy-package-source-parity.json"
+        }
+      },
+      "evaluation": {
+        "passed": true,
+        "tasks": 4,
+        "clips": [
+          "baby_full_diaper_walk_ff_180_start_R_002__A460_M",
+          "dance_basic_double_slide_270_R_002__A306",
+          "walk_randdir_injured_L_leg_002__A006",
+          "idle_crawl_stop_001__A214_M"
+        ],
+        "full6000": false,
+        "summary": {
+          "num_clips": 4,
+          "mean_progress": 0.900609756097561,
+          "median_progress": 1.0,
+          "min_progress": 0.6024390243902439,
+          "survival_rate": 0.75,
+          "success_rate": 0.75,
+          "termination_counts": {
+            "completed": 3,
+            "fallen": 1
+          },
+          "grade_counts": {
+            "good": 3,
+            "bad": 1
+          },
+          "mean_local_kpt_mae": 13.696678351558681,
+          "std_local_kpt_mae": 7.494714616568473,
+          "median_local_kpt_mae": 11.432415402895158,
+          "p10_local_kpt_mae": 7.091203117668449,
+          "p90_local_kpt_mae": 22.113563944379734,
+          "worst_local_kpt_mae": 25.89059411450328,
+          "mean_local_kpt_mae_fresh_mm": 13.691916140146846,
+          "std_local_kpt_mae_fresh_mm": 7.493103897091546,
+          "median_local_kpt_mae_fresh_mm": 11.423895001748505,
+          "p10_local_kpt_mae_fresh_mm": 7.093319463641739,
+          "p90_local_kpt_mae_fresh_mm": 22.104929727370628,
+          "worst_local_kpt_mae_fresh_mm": 25.888187942747784,
+          "mean_local_mpjpe_fresh_mm": 29.01087043259915,
+          "std_local_mpjpe_fresh_mm": 15.151446436469131,
+          "median_local_mpjpe_fresh_mm": 25.018320567018016,
+          "p10_local_mpjpe_fresh_mm": 15.235395172790742,
+          "p90_local_mpjpe_fresh_mm": 45.98038558487248,
+          "worst_local_mpjpe_fresh_mm": 53.30990335706882,
+          "mean_world_root_xy_m": 0.14185175279797418,
+          "std_world_root_xy_m": 0.1343014913915864,
+          "median_world_root_xy_m": 0.0851252524531016,
+          "p10_world_root_xy_m": 0.03873434893102977,
+          "p90_world_root_xy_m": 0.2903503569408168,
+          "worst_world_root_xy_m": 0.36950710243858265,
+          "mean_world_root_yaw_rad": 0.24498756738417166,
+          "std_world_root_yaw_rad": 0.2961447519580279,
+          "median_world_root_yaw_rad": 0.10476302867011963,
+          "p10_world_root_yaw_rad": 0.02521194532499983,
+          "p90_world_root_yaw_rad": 0.5769428204145852,
+          "worst_world_root_yaw_rad": 0.7456364404191053
+        },
+        "package_id": "sha256:c274c4ca565673412e9bbf4a453b3a72efa5d1462cc1de829bf06923355e9d93",
+        "interface_id": "sha256:eef0004af0339e3c69c818054826f049f9e11657b5f914951adc0eceab8be3e5",
+        "evaluator_identity": "c4bb87cb57c99b5906393ea30b2f7a9c2ecaa2bbf99bbc5cca63bd20cdd1df72",
+        "mujoco": "3.12.0",
+        "ort": "1.29.0",
+        "workers": 2,
+        "ort_threads": 1,
+        "traces": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/contract-check-20261103T172535/runs/cuboi/contract-audit-r2/evaluation/scoring-traces"
+      },
+      "onnx_byte_identical_to_historical": true,
+      "historical_unique_terminal_records": 6000,
+      "historical_completed": 5964,
+      "historical_failed": 36
+    },
+    "zita": {
+      "export": {
+        "backend": "zita",
+        "checkpoint": "/mnt/cpfs/workspace/yxq/supermimic/experiments/mini3_v1/zita/formal-seed0-r1/ckpt_161203.pt",
+        "iteration": 161203,
+        "strict_state_dict_keys": 26,
+        "tolerance": {
+          "absolute": 1e-05,
+          "relative": 1e-05
+        },
+        "cases": [
+          {
+            "id": "reset20",
+            "ticks": 20,
+            "producer_conformance": "policy-package-reset20-producer-conformance.npz",
+            "producer_conformance_sha256": "e0b314b47f3ecea410b4cd4a8a49e51749241c3b587f776833ada178b5e1450f"
+          },
+          {
+            "id": "turning22",
+            "ticks": 22,
+            "producer_conformance": "policy-package-turning22-producer-conformance.npz",
+            "producer_conformance_sha256": "ff4c15330087c00977b13f0f566b87cc48a78040c55b2812ba225bdd9eddb90f"
+          },
+          {
+            "id": "boundary22",
+            "ticks": 22,
+            "producer_conformance": "policy-package-boundary22-producer-conformance.npz",
+            "producer_conformance_sha256": "fbe120eb9de85a17692656ceb5f1f23f856143f60764b7795c8829daeca9d23b"
+          }
+        ],
+        "network_only_latency_ms": {
+          "mean": 0.9856874495744705,
+          "p50": 0.9855274111032486,
+          "p95": 0.9887707885354757,
+          "provider": "CPUExecutionProvider",
+          "threads": 1,
+          "warmup": 30,
+          "samples": 100,
+          "end_to_end_teleop": null
+        },
+        "source_variant_tree_sha256": "17170c73bde87aa4e387fe117a4c4cf6534edcf9642103442f8a580333476e32",
+        "exporter_sha256": "2ac2f02ce663a58b673b3b586df3132c77847787b949d64b95f1fa40742ca34f",
+        "passed": true,
+        "inputs": 64,
+        "producer_max_abs": 2.384185791015625e-07,
+        "raw_action_max_abs": 3.516674041748047e-06,
+        "joint_target_max_abs": 8.791685104370117e-07,
+        "final_onnx_sha256": "f4c0ee6557197a499f349e222fca079ece44ca4f866192ddc141acd6c92e2a1c",
+        "checkpoint_sha256": "95ed9bab1f933acdd1b14e91b72ba791f6994fd60a37f76d450c5cd69a942079",
+        "torch": "2.11.0+cu130",
+        "onnx": "1.22.0",
+        "ort": "1.29.0",
+        "export_mujoco": "3.15.0",
+        "export_mujoco_module": "/opt/isaaclab-venv/lib/python3.12/site-packages/mujoco/__init__.py",
+        "package_validation": {
+          "package": "supermimic-zita-mini3-seed0",
+          "version": "1.0.0",
+          "interface_id": "sha256:e36e6d99d6e93866a880d3ae1ec729ddfe43108c6451f4c2e971d0aac0c61c0e",
+          "package_id": "sha256:95e92bb8e556ab6171f0e49b3fe2bc3a498156b6bbdcc5ca2230e655b4a3a8f8",
+          "checks": {
+            "schema": "pass",
+            "semantic": "pass",
+            "artifacts": "pass",
+            "onnx": "pass",
+            "golden_tests": "pass"
+          }
+        }
+      },
+      "independent_consumer": {
+        "passed": true,
+        "package": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/contract-check-20261103T172535/runs/zita/contract-audit-r2/policy-package",
+        "validation": {
+          "package": "supermimic-zita-mini3-seed0",
+          "version": "1.0.0",
+          "interface_id": "sha256:e36e6d99d6e93866a880d3ae1ec729ddfe43108c6451f4c2e971d0aac0c61c0e",
+          "package_id": "sha256:95e92bb8e556ab6171f0e49b3fe2bc3a498156b6bbdcc5ca2230e655b4a3a8f8",
+          "checks": {
+            "schema": "pass",
+            "semantic": "pass",
+            "artifacts": "pass",
+            "onnx": "pass",
+            "golden_tests": "pass"
+          }
+        },
+        "adapter": "supermimic",
+        "backend": "zita",
+        "mujoco": "3.12.0",
+        "ort": "1.29.0",
+        "training_framework_imported": false,
+        "native_supermimic_imported": false,
+        "producer_conformance": {
+          "status": "passed",
+          "ticks": 64,
+          "maximum_absolute_error": 2.384185791015625e-07,
+          "report": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/contract-check-20261103T172535/runs/zita/contract-audit-r2/policy-package-source-parity.json"
+        }
+      },
+      "evaluation": {
+        "passed": true,
+        "tasks": 4,
+        "clips": [
+          "baby_full_diaper_walk_ff_180_start_R_002__A460_M",
+          "dance_basic_double_slide_270_R_002__A306",
+          "walk_randdir_injured_L_leg_002__A006",
+          "idle_crawl_stop_001__A214_M"
+        ],
+        "full6000": false,
+        "summary": {
+          "num_clips": 4,
+          "mean_progress": 0.9030487804878049,
+          "median_progress": 1.0,
+          "min_progress": 0.6121951219512195,
+          "survival_rate": 0.75,
+          "success_rate": 0.75,
+          "termination_counts": {
+            "completed": 3,
+            "fallen": 1
+          },
+          "grade_counts": {
+            "good": 3,
+            "bad": 1
+          },
+          "mean_local_kpt_mae": 15.609969209608659,
+          "std_local_kpt_mae": 10.4665368301065,
+          "median_local_kpt_mae": 11.763722254134876,
+          "p10_local_kpt_mae": 6.801821894209997,
+          "p90_local_kpt_mae": 27.495114089386348,
+          "worst_local_kpt_mae": 32.818657790259884,
+          "mean_local_kpt_mae_fresh_mm": 15.593708219082329,
+          "std_local_kpt_mae_fresh_mm": 10.475318452960366,
+          "median_local_kpt_mae_fresh_mm": 11.755010513925344,
+          "p10_local_kpt_mae_fresh_mm": 6.77062664464131,
+          "p90_local_kpt_mae_fresh_mm": 27.487747957648942,
+          "worst_local_kpt_mae_fresh_mm": 32.814398858037826,
+          "mean_local_mpjpe_fresh_mm": 33.080282167361396,
+          "std_local_mpjpe_fresh_mm": 21.106602298247225,
+          "median_local_mpjpe_fresh_mm": 26.015638234336706,
+          "p10_local_mpjpe_fresh_mm": 14.722659592170263,
+          "p90_local_mpjpe_fresh_mm": 57.08961988897229,
+          "worst_local_mpjpe_fresh_mm": 67.35764452253629,
+          "mean_world_root_xy_m": 0.19743923364032287,
+          "std_world_root_xy_m": 0.17429003155451553,
+          "median_world_root_xy_m": 0.16444236588750516,
+          "p10_world_root_xy_m": 0.028264527477035797,
+          "p90_world_root_xy_m": 0.39301143400586414,
+          "worst_world_root_xy_m": 0.4367183765006592,
+          "mean_world_root_yaw_rad": 0.22791673727365347,
+          "std_world_root_yaw_rad": 0.35504838404637923,
+          "median_world_root_yaw_rad": 0.025208704826995287,
+          "p10_world_root_yaw_rad": 0.020427997720202158,
+          "p90_world_root_yaw_rad": 0.5975719027844315,
+          "worst_world_root_yaw_rad": 0.8428596743109777
+        },
+        "package_id": "sha256:95e92bb8e556ab6171f0e49b3fe2bc3a498156b6bbdcc5ca2230e655b4a3a8f8",
+        "interface_id": "sha256:e36e6d99d6e93866a880d3ae1ec729ddfe43108c6451f4c2e971d0aac0c61c0e",
+        "evaluator_identity": "c4bb87cb57c99b5906393ea30b2f7a9c2ecaa2bbf99bbc5cca63bd20cdd1df72",
+        "mujoco": "3.12.0",
+        "ort": "1.29.0",
+        "workers": 2,
+        "ort_threads": 1,
+        "traces": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/contract-check-20261103T172535/runs/zita/contract-audit-r2/evaluation/scoring-traces"
+      },
+      "onnx_byte_identical_to_historical": true,
+      "historical_unique_terminal_records": 6000,
+      "historical_completed": 5965,
+      "historical_failed": 35
+    }
+  },
+  "trace_audit": {
+    "passed": true,
+    "mujoco": "3.12.0",
+    "scope": "trace integrity, independent FK/metric recalculation and historical per-clip agreement",
+    "models": {
+      "cuboi": [
+        {
+          "clip_id": "baby_full_diaper_walk_ff_180_start_R_002__A460_M",
+          "status": "completed",
+          "frames": 277,
+          "progress": 1.0,
+          "failure_time_s": null,
+          "matches_historical_terminal": true,
+          "maximum_historical_metric_difference": 0.0,
+          "maximum_recomputed_metric_difference": 2.472625076910262e-09,
+          "trace_sha256": "b2d7087a8060d2fc87688bed4790759722e097bdf2a108cc2d50e8f8cd8475c7"
+        },
+        {
+          "clip_id": "dance_basic_double_slide_270_R_002__A306",
+          "status": "completed",
+          "frames": 393,
+          "progress": 1.0,
+          "failure_time_s": null,
+          "matches_historical_terminal": true,
+          "maximum_historical_metric_difference": 0.0,
+          "maximum_recomputed_metric_difference": 6.992316795018105e-11,
+          "trace_sha256": "93d4d43ba2de58ac74f696e01c2cfd7e31cefc94360b4c440de25ecba8f61d9a"
+        },
+        {
+          "clip_id": "idle_crawl_stop_001__A214_M",
+          "status": "failed",
+          "frames": 247,
+          "progress": 0.6024390243902439,
+          "failure_time_s": 4.94,
+          "matches_historical_terminal": true,
+          "maximum_historical_metric_difference": 0.0,
+          "maximum_recomputed_metric_difference": 2.9511048826869057e-08,
+          "trace_sha256": "3df14494ce5c0a618d8f9267c9f1cefb4dc87dcfa29c0d828d027b4e53397e8f"
+        },
+        {
+          "clip_id": "walk_randdir_injured_L_leg_002__A006",
+          "status": "completed",
+          "frames": 4187,
+          "progress": 1.0,
+          "failure_time_s": null,
+          "matches_historical_terminal": true,
+          "maximum_historical_metric_difference": 0.0,
+          "maximum_recomputed_metric_difference": 3.309797658168634e-09,
+          "trace_sha256": "543a5263248f7867811f3b6a81c80f6c04454ac2c8d538e94dd59c6f9900b3ec"
+        }
+      ],
+      "zita": [
+        {
+          "clip_id": "baby_full_diaper_walk_ff_180_start_R_002__A460_M",
+          "status": "completed",
+          "frames": 277,
+          "progress": 1.0,
+          "failure_time_s": null,
+          "matches_historical_terminal": true,
+          "maximum_historical_metric_difference": 0.0,
+          "maximum_recomputed_metric_difference": 1.5260970192415568e-08,
+          "trace_sha256": "a72f0641b5bf54cb7959cdbf815c21243fcbf13bdcfbf0d867c50272c2afa95a"
+        },
+        {
+          "clip_id": "dance_basic_double_slide_270_R_002__A306",
+          "status": "completed",
+          "frames": 393,
+          "progress": 1.0,
+          "failure_time_s": null,
+          "matches_historical_terminal": true,
+          "maximum_historical_metric_difference": 0.0,
+          "maximum_recomputed_metric_difference": 2.11106599215527e-09,
+          "trace_sha256": "6ce89f8de8e472615862a4ae43ee6c7063269708920f08e3e807a5bee76f14ae"
+        },
+        {
+          "clip_id": "idle_crawl_stop_001__A214_M",
+          "status": "failed",
+          "frames": 251,
+          "progress": 0.6121951219512195,
+          "failure_time_s": 5.0200000000000005,
+          "matches_historical_terminal": true,
+          "maximum_historical_metric_difference": 0.0,
+          "maximum_recomputed_metric_difference": 3.2847547237757624e-08,
+          "trace_sha256": "1eb4cc5584710fd42b8e9eecc0625ed491d97e4b3bce52d18e0b6b997b92bcd9"
+        },
+        {
+          "clip_id": "walk_randdir_injured_L_leg_002__A006",
+          "status": "completed",
+          "frames": 4187,
+          "progress": 1.0,
+          "failure_time_s": null,
+          "matches_historical_terminal": true,
+          "maximum_historical_metric_difference": 0.0,
+          "maximum_recomputed_metric_difference": 1.990288673453522e-09,
+          "trace_sha256": "876cc8d63b99402c60ee6bea4c98aaf1c0390ade5030b0afce3c27c4f65c9cbf"
+        }
+      ]
+    }
+  }
+}
