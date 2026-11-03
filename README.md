@@ -18,4 +18,6 @@ git clone --branch zita --single-branch https://github.com/ZerothOpenBridge/supe
 
 在服务器使用已有容器时请按分支README把checkout放在其CPFS共享挂载内。每个实现分支均包含环境复用/重建说明、preflight、CPU FK、fresh/resume、native dev316、导出和统一评测命令。新启动器经过的验收范围见对应分支`docs/VALIDATION.md`；未为归档而启动新训练。
 
+导出与统一评测的协议、实跑验收和命令见[ONNX 与统一 Contract 评测链路](docs/CONTRACT_PIPELINE.md)。
+
 上游代码版权与MIT许可分别保留于LICENSES和实现分支LICENSE；机器人资产、数据和模型的使用范围另循原来源。
