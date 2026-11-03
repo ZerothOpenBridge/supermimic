@@ -1,0 +1,10 @@
+{
+  "root": "/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/contract-tooling",
+  "files": {
+    "contracts/robot-policy-onnx/schema/onnx_contract.schema.json": "bc3c2d602a0584ea1413edecd3a5afdfee831fee99ce04fb693f5e89ab9d75ba",
+    "tools/__init__.py": "8770988f05bfb288ddcb684c4b9d50b4ef64409ba312a602e991f35e8c3042dc",
+    "tools/generate_examples.py": "9da662d045e0ce14265e05aad19ef0a45016362041222c7cfcb5aeb6446dd3f3",
+    "tools/generate_producer_vectors.py": "e270f8c3a280cbb3e5880a25f44e4e583e0fd25cd3542fa18a9fd5034d633ea2",
+    "tools/onnx_contract.py": "30fba490760798ad9a7d7346cdf1a74e5899ad8582d461245cb11678ea818876"
+  }
+}

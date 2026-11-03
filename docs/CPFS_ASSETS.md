@@ -21,7 +21,7 @@
 |正式结果与评分trace|experiments/mini3_v1/cohort-full-v1/<model>/|
 |本机完整汇总的服务器来源|experiments/mini3_v1/及上述cohort目录|
 
-大型文件没有Git LFS指针或外部自动下载。preflight检查存在性、关键大小、控制文件与源码哈希，不把预检变成每次重读5GB训练数据；完整训练数据SHA已记录，可按需sha256sum校验。不要对资产或数据原地转换；需要变体时另建目录并重新记录身份。
+大型文件不使用Git LFS指针；选中的轻量checkpoint和完整ONNX包另在本仓库Release分发，可用scripts/fetch_weights.py按清单下载校验，见WEIGHTS.md。训练数据和完整恢复文件仍只引用CPFS。preflight检查存在性、关键大小、控制文件与源码哈希，不把预检变成每次重读5GB训练数据；完整训练数据SHA已记录，可按需sha256sum校验。不要对资产或数据原地转换；需要变体时另建目录并重新记录身份。
 
 数据格式是FP16压缩的55维状态：p3、wxyz四元数4、joint21、世界线速度3、世界角速度3、joint速度21，50Hz；训练FK/奖励按各实现恢复到其原生精度。不得直接把G1数据裁剪成Mini3，也不得把full6000用作训练。
 

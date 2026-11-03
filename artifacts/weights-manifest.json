@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "repository": "ZerothOpenBridge/supermimic",
+  "release_tag": "mini3-seed0-v1",
+  "release_url": "https://github.com/ZerothOpenBridge/supermimic/releases/tag/mini3-seed0-v1",
+  "models": {
+    "cuboi": {
+      "robot": "mini3_v031",
+      "joints": 21,
+      "seed": 0,
+      "initialization": "scratch",
+      "selected_iteration": 320000,
+      "terminal_iteration": 320000,
+      "checkpoint_asset": "cuboi-mini3-seed0-iter320000.pt",
+      "onnx_asset": "cuboi-mini3-seed0-onnx.tar.gz",
+      "package_subdirectory": "cuboi-mini3-seed0/policy-package",
+      "source_ref": "mini3-seed0-v1-cuboi",
+      "source_module_sha256": "e77b28cf3bd91b7bb730caf638112c0d3acd6fa10efd44e72f2095f2b61b2ff5",
+      "policy_onnx_sha256": "557a8843c460e616d3c819560e2613d0d5a72a85d031cdaf1a42da3a5f52dcbc",
+      "interface_id": "sha256:eef0004af0339e3c69c818054826f049f9e11657b5f914951adc0eceab8be3e5",
+      "package_id": "sha256:c274c4ca565673412e9bbf4a453b3a72efa5d1462cc1de829bf06923355e9d93",
+      "includes_optimizer": false,
+      "includes_replay": false
+    },
+    "zita": {
+      "robot": "mini3_v031",
+      "joints": 21,
+      "seed": 0,
+      "initialization": "scratch",
+      "selected_iteration": 161203,
+      "terminal_iteration": 221158,
+      "checkpoint_asset": "zita-mini3-seed0-iter161203.pt",
+      "onnx_asset": "zita-mini3-seed0-onnx.tar.gz",
+      "package_subdirectory": "zita-mini3-seed0/policy-package",
+      "source_ref": "mini3-seed0-v1-zita",
+      "source_module_sha256": "17170c73bde87aa4e387fe117a4c4cf6534edcf9642103442f8a580333476e32",
+      "policy_onnx_sha256": "f4c0ee6557197a499f349e222fca079ece44ca4f866192ddc141acd6c92e2a1c",
+      "interface_id": "sha256:e36e6d99d6e93866a880d3ae1ec729ddfe43108c6451f4c2e971d0aac0c61c0e",
+      "package_id": "sha256:95e92bb8e556ab6171f0e49b3fe2bc3a498156b6bbdcc5ca2230e655b4a3a8f8",
+      "includes_optimizer": false,
+      "includes_replay": false
+    }
+  },
+  "assets": [
+    {
+      "backend": "cuboi",
+      "kind": "checkpoint",
+      "name": "cuboi-mini3-seed0-iter320000.pt",
+      "bytes": 67925715,
+      "sha256": "f6c2c296a1c1c3ea164041d7c0f886cad2047ac51f4d7311aacc393cd64d9331"
+    },
+    {
+      "backend": "cuboi",
+      "kind": "onnx",
+      "name": "cuboi-mini3-seed0-onnx.tar.gz",
+      "bytes": 30113601,
+      "sha256": "a3f2cbcad0665d6e2117a6ba3b1e706a400ba6d19398f841432d82a1efaed69d"
+    },
+    {
+      "backend": "zita",
+      "kind": "checkpoint",
+      "name": "zita-mini3-seed0-iter161203.pt",
+      "bytes": 68102341,
+      "sha256": "95ed9bab1f933acdd1b14e91b72ba791f6994fd60a37f76d450c5cd69a942079"
+    },
+    {
+      "backend": "zita",
+      "kind": "onnx",
+      "name": "zita-mini3-seed0-onnx.tar.gz",
+      "bytes": 31016487,
+      "sha256": "5cbc81afe67dc7f743a5261a112befecf1bc9d3be85d8cfc13030a47bd66582f"
+    }
+  ]
+}

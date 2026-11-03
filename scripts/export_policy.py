@@ -5,6 +5,8 @@ from pathlib import Path
 # Keep native MuJoCo/mjlab/torch first. Missing ONNX/ORT/contract tools are appended,
 # never injected ahead of the training environment's site-packages.
 D=Path('/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1')
+from runtime_contract import verify_runtime_sources
+RUNTIME_IDENTITY=verify_runtime_sources()
 sys.path.extend([str(D/'runtime/export-runtime'),str(D/'runtime/contracts/lib/python3.12/site-packages')])
 import numpy as np,torch,yaml,onnx,onnxruntime as ort
 p=argparse.ArgumentParser();p.add_argument('--backend',choices=['cuboi','zita'],required=True);p.add_argument('--checkpoint',required=True);p.add_argument('--output',required=True);a=p.parse_args()
@@ -115,5 +117,5 @@ latencies=[]
 for j in range(100):
  start=walltime.perf_counter();session.run(['raw_action'],feeds[j%len(feeds)]);latencies.append((walltime.perf_counter()-start)*1000)
 report['network_only_latency_ms']={'mean':float(np.mean(latencies)),'p50':float(np.percentile(latencies,50)),'p95':float(np.percentile(latencies,95)),'provider':'CPUExecutionProvider','threads':1,'warmup':30,'samples':100,'end_to_end_teleop':None}
-report.update(source_variant_tree_sha256=source_identity,exporter_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),passed=True,inputs=len(feeds),producer_max_abs=producer_max,raw_action_max_abs=max_abs,joint_target_max_abs=target_abs,final_onnx_sha256=sha(out/'policy.onnx'),checkpoint_sha256=sha(ckpath),torch=torch.__version__,onnx=onnx.__version__,ort=ort.__version__,export_mujoco=mujoco.__version__,export_mujoco_module=mujoco.__file__,package_validation=validation)
+report.update(source_variant_tree_sha256=source_identity,exporter_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),passed=True,inputs=len(feeds),producer_max_abs=producer_max,raw_action_max_abs=max_abs,joint_target_max_abs=target_abs,final_onnx_sha256=sha(out/'policy.onnx'),checkpoint_sha256=sha(ckpath),runtime_identity=RUNTIME_IDENTITY,torch=torch.__version__,onnx=onnx.__version__,ort=ort.__version__,export_mujoco=mujoco.__version__,export_mujoco_module=mujoco.__file__,package_validation=validation)
 evidence=out.parent/(out.name+'-source-parity.json');evidence.write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2),flush=True)

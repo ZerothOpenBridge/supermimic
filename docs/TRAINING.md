@@ -25,3 +25,7 @@ Cuboi run终点320000，交付同一候选；zita在221158预算结束，交付1
 每次启动记录当前Git提交、dirty状态、模块逐文件SHA及配置SHA。感知变体请另开feature分支和独立run；baseline的preflight严格核对冻结源码，修改后应明确记录并评审新的源身份，不静默冒充原baseline。
 
 感知变体需先在feature分支评审源码差异，并有意更新 `provenance/native-source-sha256.json`（相对仓库根的模块文件名→SHA256），保留原baseline分支不变。新run的launch回执会记录实际源码与配置SHA；更新清单只表示变体身份，不能继承原baseline验收结论。
+
+## 配置来源补充
+
+recorded-formal.json记录终段启动参数；selected-checkpoint.json保存本次交付权重的内嵌配置。zita选中点的checkpoint_seconds为7200秒，终段因预算收口为6909.611607827246秒，launcher可视化字段也有差异；核心训练超参相同。新formal配方保持7200秒常规分段，不能把末段参数冒充选中点原始配置。
