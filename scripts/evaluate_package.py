@@ -1,17 +1,66 @@
-"""Frozen common Mini3 evaluator; full6000 is never used for model selection."""
-import argparse,json
+"""Frozen common Mini3 evaluator; an explicit clip subset is an interface check."""
+import argparse
+import json
 from pathlib import Path
-p=argparse.ArgumentParser();p.add_argument('--package',required=True);p.add_argument('--output',required=True);a=p.parse_args()
-out=Path(a.output)
-if out.exists():raise FileExistsError(out)
-import mujoco,onnxruntime,yaml
-from teleop_evaluator.api import EvaluationRequest,evaluate
-assert mujoco.__version__=='3.12.0' and onnxruntime.__version__=='1.29.0','Use docs/ENVIRONMENT.md common-evaluation runtime'
-D=Path('/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1')
-config=Path(a.output).parent/'ort-one-thread.yaml'
-config.write_text('ort_intra_op_threads: 1\nort_inter_op_threads: 1\nort_execution_mode: sequential\nort_graph_optimization: basic\n')
-contract=yaml.safe_load((Path(a.package)/'onnx_contract.yaml').read_text())
-result=evaluate(EvaluationRequest(adapter='supermimic',model={'contract':str(Path(a.package)/'onnx_contract.yaml')},dataset_dir=str(D/'benchmark'),split='full',robot='mini3_v031',profile='mini3_teleop_v1',output_dir=str(out),workers=32,device=('cpu',),seeds=(0,),render='none',checksums='full',resume=False,user_config=str(config),extra={'evaluator_identity':json.loads((D/'evaluator-frozen-v1/identity.json').read_text())['overlay_tree_sha256'],'diagnostics':{'fresh_fk':True,'trace_dir':str(out/'scoring-traces'),'trace_clip_ids':[],'package_id':contract['package']['package_id'],'interface_id':contract['package']['interface_id']}}))
-assert len(result.clip_results)==6000 and len({(r['clip_id'],r['seed']) for r in result.clip_results})==6000
-assert all(r['status'] in ('completed','failed') for r in result.clip_results)
-print(json.dumps({'tasks':6000,'summary':result.summary,'scope':'Frozen scoring protocol; historical fresh-FK/scoring-trace extension remains at CPFS evaluate_batch.py'},indent=2))
+
+import mujoco
+import onnxruntime
+import yaml
+from teleop_evaluator.api import EvaluationRequest, evaluate
+
+D = Path('/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1')
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--package', type=Path, required=True)
+    parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--clip', action='append', default=[])
+    parser.add_argument('--workers', type=int, default=32)
+    args = parser.parse_args()
+    if not 1 <= args.workers <= 32:
+        parser.error('--workers must be 1..32')
+    if len(set(args.clip)) != len(args.clip):
+        parser.error('Duplicate clip IDs are not allowed')
+    if args.output.exists():
+        raise FileExistsError(args.output)
+    if not args.output.parent.is_dir():
+        raise FileNotFoundError(args.output.parent)
+    assert mujoco.__version__ == '3.12.0' and onnxruntime.__version__ == '1.29.0'
+    config = args.output.parent / 'ort-one-thread.yaml'
+    config.write_text('ort_intra_op_threads: 1\nort_inter_op_threads: 1\n'
+                      'ort_execution_mode: sequential\nort_graph_optimization: basic\n')
+    contract = yaml.safe_load((args.package / 'onnx_contract.yaml').read_text())
+    identity = json.loads((D / 'evaluator-frozen-v1/identity.json').read_text())
+    result = evaluate(EvaluationRequest(
+        adapter='supermimic', model={'contract': str(args.package / 'onnx_contract.yaml')},
+        dataset_dir=str(D / 'benchmark'), split='full', robot='mini3_v031',
+        profile='mini3_teleop_v1', output_dir=str(args.output), workers=args.workers,
+        device=('cpu',), seeds=(0,), clip=tuple(args.clip), render='none',
+        checksums='full', resume=False, user_config=str(config),
+        extra={'evaluator_identity': identity['overlay_tree_sha256'],
+               'scope': 'interface-check' if args.clip else 'full6000',
+               'diagnostics': {'fresh_fk': True,
+                   'trace_dir': str(args.output / 'scoring-traces'),
+                   'trace_clip_ids': args.clip,
+                   'package_id': contract['package']['package_id'],
+                   'interface_id': contract['package']['interface_id']}}))
+    rows = result.clip_results
+    assert len(rows) == (len(args.clip) if args.clip else 6000)
+    assert len({(r['clip_id'], r['seed']) for r in rows}) == len(rows)
+    assert all(r['status'] in ('completed', 'failed') for r in rows), 'Technical errors'
+    if args.clip:
+        assert {r['clip_id'] for r in rows} == set(args.clip), 'Clip filter changed'
+    receipt = {'passed': True, 'tasks': len(rows), 'clips': args.clip,
+        'full6000': not bool(args.clip), 'summary': result.summary,
+        'package_id': contract['package']['package_id'],
+        'interface_id': contract['package']['interface_id'],
+        'evaluator_identity': identity['overlay_tree_sha256'],
+        'mujoco': mujoco.__version__, 'ort': onnxruntime.__version__,
+        'workers': args.workers, 'ort_threads': 1, 'traces': str(args.output / 'scoring-traces')}
+    (args.output / 'acceptance.json').write_text(json.dumps(receipt, indent=2))
+    print(json.dumps(receipt, indent=2))
+
+
+if __name__ == '__main__':
+    main()

@@ -9,11 +9,13 @@ METHOD=json.loads((REPO/'configs/implementation.json').read_text())['backend']
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('action',choices=['preflight','check-fk','train','resume','native-eval','export','evaluate'])
+    p.add_argument('action',choices=['preflight','check-fk','train','resume','native-eval','export','verify-package','evaluate'])
     p.add_argument('--run-id',default='')
     p.add_argument('--gpu',type=int,help='physical host GPU; required for GPU actions')
     p.add_argument('--checkpoint',type=Path)
     p.add_argument('--package',type=Path)
+    p.add_argument('--clip',action='append',default=[],help='evaluate only: exact clip ID; repeat for a small interface check')
+    p.add_argument('--workers',type=int,default=32,help='evaluate only: CPU workers, 1..32')
     p.add_argument('--run-root',type=Path,default=R/'shared/data/collaboration/runs')
     p.add_argument('--max-seconds',type=float,default=7800,help='one invocation, including checkpoint grace; run ledger cap is 48 GPUh')
     p.add_argument('--python',default=os.environ.get('SM_PYTHON',str(R/'cuboi/.venv/bin/python')))
@@ -24,6 +26,8 @@ def main():
     gpu_action=a.action in ['train','resume','native-eval']
     if a.action not in ['preflight','check-fk'] and not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]{0,80}',a.run_id):p.error('Supply a new --run-id (letters, numbers, _, . and -)')
     if gpu_action and (a.gpu is None or a.gpu<0):p.error('--gpu is required for GPU actions')
+    if not 1<=a.workers<=32:p.error('--workers must be 1..32')
+    if a.clip and a.action!='evaluate':p.error('--clip is only valid for evaluate')
     if a.max_seconds<300:p.error('--max-seconds must reserve at least 300 seconds')
     run=a.run_root/METHOD/a.run_id if a.run_id else a.run_root/METHOD
     if not str(run).startswith('/mnt/cpfs/'):p.error('run-root must be on CPFS')
@@ -54,11 +58,16 @@ def main():
         target=[str(REPO/'scripts/native_eval.py'),'--checkpoint',str(ck),'--output',str(eval_output)]
         if METHOD=='zita':target+=['--library','dev316']
     elif a.action=='export':target=[str(REPO/'scripts/export_policy.py'),'--backend',METHOD,'--checkpoint',str(ck),'--output',str(run/'policy-package')]
+    elif a.action=='verify-package':
+        if a.package is None:p.error('verify-package requires --package')
+        target=[str(REPO/'scripts/verify_package.py'),'--package',str(a.package)]
     else:
         if a.package is None:p.error('evaluate requires --package (an exported package directory)')
-        target=[str(REPO/'scripts/evaluate_package.py'),'--package',str(a.package),'--output',str(run/'evaluation')]
+        target=[str(REPO/'scripts/evaluate_package.py'),'--package',str(a.package),'--output',str(run/'evaluation'),'--workers',str(a.workers)]+[v for c in a.clip for v in ['--clip',c]]
     source=REPO/'src' if METHOD=='cuboi' else REPO
-    extra=[D/'evaluator-frozen-v1/evaluator/src',D/'runtime/export-runtime',D/'runtime/contracts/lib/python3.12/site-packages'] if a.action in ['export','evaluate'] else []
+    # Native export retains training dependencies; its script appends only missing export tools.
+    # The independent consumer intentionally gives the frozen MuJoCo/ORT runtime priority.
+    extra=[D/'evaluator-frozen-v1/evaluator/src'] if a.action=='export' else [D/'evaluator-frozen-v1/evaluator/src',D/'runtime/export-runtime',D/'runtime/contracts/lib/python3.12/site-packages'] if a.action in ['verify-package','evaluate'] else []
     pythonpath=':'.join(map(str,[source,*extra]))
     cache=run/'cache' if a.run_id else a.run_root/METHOD/'preflight-cache'
     env=os.environ.copy();env.update(PYTHONPATH=pythonpath,OMP_NUM_THREADS='8' if gpu_action else '1',OPENBLAS_NUM_THREADS='1',MKL_NUM_THREADS='8' if gpu_action else '1',PYTHONUNBUFFERED='1',PYTHONDONTWRITEBYTECODE='1',CUDA_VISIBLE_DEVICES=str(a.gpu) if gpu_action and METHOD=='cuboi' else '',SM_RUN_BUDGET_ROOT=str(run/'resource-ledger'))
