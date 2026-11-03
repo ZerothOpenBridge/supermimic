@@ -9,7 +9,7 @@
 
 先读[先导](docs/INTRODUCTION.md)与[日志口径](docs/LOGGING.md)，再切实现分支按README操作。两份策略从随机初始化训练seed0，各使用单张48GB RTX4090。不同iteration、输入与精度不能直接横比。
 
-数据、权重、完整日志、视频、replay和镜像留在`/mnt/cpfs/workspace/yxq/supermimic/`。仓库只保存代码、配置、路径/哈希、结果摘要和说明。这里尚未完成Mini3真机或感知WBC性能验收。
+选中的两份checkpoint和完整ONNX contract包已发布在本私有仓库的[mini3-seed0-v1 Release](https://github.com/ZerothOpenBridge/supermimic/releases/tag/mini3-seed0-v1)，见[权重与复现](docs/WEIGHTS.md)。Git历史保存源码、配置、清单与回执；数据、完整optimizer/replay恢复文件、完整日志、视频和镜像留在`/mnt/cpfs/workspace/yxq/supermimic/`。这里尚未完成Mini3真机或感知WBC性能验收。
 
 ```bash
 git clone --branch cuboi --single-branch https://github.com/ZerothOpenBridge/supermimic.git cuboi-mini3
