@@ -1,0 +1,65 @@
+{
+  "backend": "cuboi",
+  "checkpoint": "/mnt/cpfs/workspace/yxq/supermimic/experiments/mini3_v1/cuboi/formal-seed0-r1/candidate_0320000.pt",
+  "iteration": 320000,
+  "strict_state_dict_keys": 22,
+  "tolerance": {
+    "absolute": 1e-05,
+    "relative": 1e-05
+  },
+  "cases": [
+    {
+      "id": "reset20",
+      "ticks": 20,
+      "producer_conformance": "building-final-cuboi-mini3-v1-reset20-producer-conformance.npz",
+      "producer_conformance_sha256": "c50dabb5db0104179d672d094e24b16e7c45448ccfd09ffe490c1cbe6851f97b"
+    },
+    {
+      "id": "turning22",
+      "ticks": 22,
+      "producer_conformance": "building-final-cuboi-mini3-v1-turning22-producer-conformance.npz",
+      "producer_conformance_sha256": "839a74e37c9d10c47e2da0e7d3e42b394037be0aed865cba889a599f54204c67"
+    },
+    {
+      "id": "boundary22",
+      "ticks": 22,
+      "producer_conformance": "building-final-cuboi-mini3-v1-boundary22-producer-conformance.npz",
+      "producer_conformance_sha256": "a010f9dddec9a65f0045be05964958d5497a4eed667bdc60c63efd3b462cd4e0"
+    }
+  ],
+  "network_only_latency_ms": {
+    "mean": 0.948786186054349,
+    "p50": 0.9481054730713367,
+    "p95": 0.9522697888314724,
+    "provider": "CPUExecutionProvider",
+    "threads": 1,
+    "warmup": 30,
+    "samples": 100,
+    "end_to_end_teleop": null
+  },
+  "source_variant_tree_sha256": "7b9c9e1bbc42f2d1e19c80f617b0fdddac37e8618607264f3d1162f2c43bc307",
+  "exporter_sha256": "1eca3a42bf7ae5e6d00346c2779d4b6490c201312997762020d4e0a79bda2c49",
+  "passed": true,
+  "inputs": 64,
+  "producer_max_abs": 1.1920928955078125e-07,
+  "raw_action_max_abs": 1.6093254089355469e-06,
+  "joint_target_max_abs": 4.023313522338867e-07,
+  "final_onnx_sha256": "557a8843c460e616d3c819560e2613d0d5a72a85d031cdaf1a42da3a5f52dcbc",
+  "checkpoint_sha256": "f6c2c296a1c1c3ea164041d7c0f886cad2047ac51f4d7311aacc393cd64d9331",
+  "torch": "2.14.1+cu130",
+  "onnx": "1.23.2",
+  "ort": "1.29.0",
+  "package_validation": {
+    "package": "supermimic-cuboi-mini3-seed0",
+    "version": "1.0.0",
+    "interface_id": "sha256:eef0004af0339e3c69c818054826f049f9e11657b5f914951adc0eceab8be3e5",
+    "package_id": "sha256:c274c4ca565673412e9bbf4a453b3a72efa5d1462cc1de829bf06923355e9d93",
+    "checks": {
+      "schema": "pass",
+      "semantic": "pass",
+      "artifacts": "pass",
+      "onnx": "pass",
+      "golden_tests": "pass"
+    }
+  }
+}

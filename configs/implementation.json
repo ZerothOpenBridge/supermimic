@@ -1,0 +1,11 @@
+{
+  "backend": "cuboi",
+  "upstream_repository": "https://github.com/CuboiLeo/SuperMimic-Reproduced",
+  "upstream_commit": "ba6105349069bf040f1fdad60873d13138d505a2",
+  "isaaclab_commit": null,
+  "code_files": 47,
+  "source_capture": "2026-11-03 CPFS read-only audit",
+  "clean_module_sha256": "e77b28cf3bd91b7bb730caf638112c0d3acd6fa10efd44e72f2095f2b61b2ff5",
+  "export_source_tree_sha256": "7b9c9e1bbc42f2d1e19c80f617b0fdddac37e8618607264f3d1162f2c43bc307",
+  "ignored_appledouble_metadata": true
+}

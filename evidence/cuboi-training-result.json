@@ -1,0 +1,49 @@
+{
+  "status": "training_stopped_or_native_steps_complete",
+  "iteration": 320000,
+  "updates": 127984,
+  "sim_transitions": 1310720000,
+  "wm_optimizer_updates": 1279840,
+  "policy_optimizer_updates": 127984,
+  "imagined_steps": 16775118848,
+  "selected": {
+    "checkpoint": "/mnt/cpfs/workspace/yxq/supermimic/experiments/mini3_v1/cuboi/formal-seed0-r1/candidate_0320000.pt",
+    "iteration": 320000,
+    "updates": 127984,
+    "criterion_key": [
+      0.9968354430379747,
+      0.9968792734668116,
+      -0.006002688749801231,
+      -320000
+    ],
+    "development": {
+      "completion_rate": 0.9968354430379747,
+      "mean_progress": 0.9968792734668116,
+      "mean_local_kpt_mae": 0.006002688749801231,
+      "clips": 316,
+      "failed": 1,
+      "mean_norm_return": 0.9477085074781881,
+      "step_weighted_norm_return": 0.9513182398657717,
+      "terms": {
+        "motion_global_root_pos": 0.009272363089267797,
+        "motion_global_root_ori": 0.0094130905470865,
+        "motion_body_pos": 0.019878637460098682,
+        "motion_body_ori": 0.018598272114152277,
+        "motion_body_lin_vel": 0.019585946060747827,
+        "motion_body_ang_vel": 0.019144386943599552,
+        "action_rate_l2": -0.0007035658430470561,
+        "joint_limit": -5.730816787426057e-05
+      }
+    },
+    "development_only": true
+  },
+  "seed": 0,
+  "fresh_training": false,
+  "peak_main_process_rss_bytes": 7387181056,
+  "peak_torch_allocated_bytes": 22074327552,
+  "peak_torch_reserved_bytes": 22525509632,
+  "resumed_from": "/mnt/cpfs/workspace/yxq/supermimic/experiments/mini3_v1/cuboi/formal-seed0-r1/ckpt_latest.pt",
+  "iteration_at_resume": 137570,
+  "optimizer_step_at_resume": 55012,
+  "optimizer_step_at_end": 127984
+}

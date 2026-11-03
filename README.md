@@ -1,21 +1,46 @@
-# SuperMimic · Zeroth Mini3 协作入口
+# SuperMimic cuboi · Mini3 v0.3.1
 
-两份实际Mini3复现分别在独立分支；本main分支只提供导航与共同交接。整理日期2026-11-03。
+这是我们实际训练使用的Mini3适配源码快照；对应另一实现见[zita分支](https://github.com/ZerothOpenBridge/supermimic/tree/zita)，共同导航见[main](https://github.com/ZerothOpenBridge/supermimic/tree/main)。本分支不是上游G1默认示例。
 
-|分支|内容|历史正式run|
-|---|---|---|
-|[cuboi](https://github.com/ZerothOpenBridge/supermimic/tree/cuboi)|mjlab / MuJoCo-Warp，21关节Mini3适配源码、锁文件、配置和启动脚本|320000 iteration；34.0054 GPUh|
-|[zita](https://github.com/ZerothOpenBridge/supermimic/tree/zita)|Isaac Lab 3无Kit / Newton-MJWarp，独立Mini3适配|221158 iteration；47.9526 GPUh；交付161203|
+**先读：[同事对接](docs/COLLEAGUE_HANDOFF.md) · [环境](docs/ENVIRONMENT.md) · [训练](docs/TRAINING.md) · [日志](docs/LOGGING.md) · [CPFS数据与权重](docs/CPFS_ASSETS.md) · [本次验收范围](docs/VALIDATION.md)**
 
-先读[同事对接说明](docs/COLLEAGUE_HANDOFF.md)与[日志口径](docs/LOGGING.md)，再切实现分支按README操作。两份策略从随机初始化训练seed0，各使用单张48GB RTX4090。不同iteration、输入与精度不能直接横比。
+## 快速开始：复用已部署环境
 
-数据、权重、完整日志、视频、replay和镜像留在`/mnt/cpfs/workspace/yxq/supermimic/`。仓库只保存代码、配置、路径/哈希、结果摘要和说明。这里尚未完成Mini3真机或感知WBC性能验收。
+历史主机为海豚 zero-2；先确认所选卡空闲。zita的现有容器挂载覆盖shared/data，所以checkout推荐如下位置。不会自动创建/重启容器，也不会修改历史run。
 
 ```bash
-git clone --branch cuboi --single-branch https://github.com/ZerothOpenBridge/supermimic.git cuboi-mini3
-git clone --branch zita --single-branch https://github.com/ZerothOpenBridge/supermimic.git zita-mini3
+git clone --branch cuboi --single-branch https://github.com/ZerothOpenBridge/supermimic.git /mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/checkouts/cuboi
+cd /mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/checkouts/cuboi
+python3 scripts/run.py preflight
+python3 scripts/run.py check-fk
+python3 scripts/run.py train --run-id colleague-seed0-r1 --gpu 2 --dry-run
+# 确认路径、空闲卡和预算后，启动一个有界训练段：
+python3 scripts/run.py train --run-id colleague-seed0-r1 --gpu 2 --max-seconds 7800
 ```
 
-在服务器使用已有容器时请按分支README把checkout放在其CPFS共享挂载内。每个实现分支均包含环境复用/重建说明、preflight、CPU FK、fresh/resume、native dev316、导出和统一评测命令。新启动器经过的验收范围见对应分支`docs/VALIDATION.md`；未为归档而启动新训练。
+`preflight`和`check-fk`隐藏CUDA，不做GPU仿真。`train`不是一次性自动跑满48小时：默认单次上限7800秒；zita约每7200秒保存退出，Cuboi由有界guard请求正常保存退出。每个新run有独立48 GPU小时账本，native-eval也计费；不会使用已耗尽的历史账本。
 
-上游代码版权与MIT许可分别保留于LICENSES和实现分支LICENSE；机器人资产、数据和模型的使用范围另循原来源。
+```bash
+python3 scripts/run.py native-eval --run-id colleague-seed0-r1 --gpu 2 --max-seconds 900
+python3 scripts/run.py resume --run-id colleague-seed0-r1 --gpu 2 --max-seconds 7800
+```
+
+在每段结束后评dev316、记录候选，再resume，直到原生320000 iteration或该新run的预算先到。Cuboi内部定时候选已有dev评估，native-eval可用于显式复查；zita需显式native-eval以更新selection。不要根据Full-6000追加训练或选模。
+
+新的输出根为`/mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/runs/cuboi/<run-id>/`；原生输出在`training/`，完整checkpoint、CSV/TensorBoard和stdout都留CPFS。
+
+## 导出与统一评测
+
+```bash
+python3 scripts/run.py export --run-id colleague-seed0-r1
+python3 scripts/run.py evaluate --run-id colleague-seed0-r1 \
+  --package /mnt/cpfs/workspace/yxq/supermimic/shared/data/collaboration/runs/cuboi/colleague-seed0-r1/policy-package
+```
+
+导出默认读取本新run的selection.json；未选模时必须显式给`--checkpoint`。CPU导出执行64组source parity和完整contract检查。统一评测为CPU、Full-6000、32 workers、ORT单线程，使用已部署冻结evaluator，不覆盖历史输出。不要先跑Full-6000再按结果改配方。
+
+## 源码、环境与外部依赖
+
+`configs/recorded-formal.json`是实际run保存配置（可能含历史resume路径），仅用于审阅；`configs/formal.json`用于新启动，resume已清空。`provenance/native-source-sha256.json`记录与2026-11-03服务器逐文件一致的模块源码。原上游README见docs/UPSTREAM_README.md，许可证保留。Cuboi原导出tree含AppleDouble元数据，仓库移除这些非代码文件，另外保留原导出tree与干净代码tree两个哈希。
+
+数据、机器人资产、checkpoint、ONNX、完整日志、容器、缓存不在Git。当前native Mini3适配固定从`/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/control/control.json`读取本体；更换资产根/机器人必须显式适配并重做FK和接口验收。
