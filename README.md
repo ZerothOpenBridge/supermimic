@@ -9,7 +9,7 @@
 
 先读[先导](docs/INTRODUCTION.md)与[日志口径](docs/LOGGING.md)，再切实现分支按README操作。两份策略从随机初始化训练seed0，各使用单张48GB RTX4090。不同iteration、输入与精度不能直接横比。
 
-选中的两份checkpoint和完整ONNX contract包已发布在本私有仓库的[mini3-seed0-v1 Release](https://github.com/ZerothOpenBridge/supermimic/releases/tag/mini3-seed0-v1)，见[权重与复现](docs/WEIGHTS.md)。Git历史保存源码、配置、清单与回执；数据、完整optimizer/replay恢复文件、完整日志、视频和镜像留在`/mnt/cpfs/workspace/yxq/supermimic/`。这里尚未完成Mini3真机或感知WBC性能验收。
+选中的两份checkpoint和完整ONNX contract包已发布在本公开仓库的[mini3-seed0-v1 Release](https://github.com/ZerothOpenBridge/supermimic/releases/tag/mini3-seed0-v1)，见[权重与复现](docs/WEIGHTS.md)。Git历史保存源码、配置、清单与回执；数据、完整optimizer/replay恢复文件、完整日志、视频和镜像留在`/mnt/cpfs/workspace/yxq/supermimic/`。这里尚未完成Mini3真机或感知WBC性能验收。
 
 ```bash
 git clone --branch cuboi --single-branch https://github.com/ZerothOpenBridge/supermimic.git cuboi-mini3
@@ -21,3 +21,5 @@ git clone --branch zita --single-branch https://github.com/ZerothOpenBridge/supe
 导出与统一评测的协议、实跑验收和命令见[ONNX 与统一 Contract 评测链路](docs/CONTRACT_PIPELINE.md)。
 
 上游代码版权与MIT许可分别保留于LICENSES和实现分支LICENSE；机器人资产、数据和模型的使用范围另循原来源。
+
+仓库与Release已于2026-11-04设为公开，可直接阅读、克隆和匿名下载。协作推送代码仍需仓库Write权限。下载脚本默认不读取凭据；仅在需要私有访问或提高API额度时使用--authenticate。
