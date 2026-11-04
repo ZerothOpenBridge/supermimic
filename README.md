@@ -50,3 +50,5 @@ python3 scripts/run.py evaluate --run-id colleague-contract-smoke-r1 \
 Git历史不包含二进制大文件；两份选中的checkpoint和完整ONNX包位于本仓库[Release](https://github.com/ZerothOpenBridge/supermimic/releases/tag/mini3-seed0-v1)，下载脚本、SHA256和复现范围见[权重与复现](docs/WEIGHTS.md)。数据、机器人资产、完整恢复文件、完整日志、容器和缓存仍在CPFS。当前native Mini3适配固定从`/mnt/cpfs/workspace/yxq/supermimic/shared/data/mini3_v1/control/control.json`读取本体；更换资产根/机器人必须显式适配并重做FK和接口验收。
 
 `configs/selected-checkpoint.json`另外保留交付checkpoint自己的配置；`recorded-formal.json`来自训练终段。zita在保存间隔和部分launcher字段上有差异，核心训练超参一致，详见权重复核回执。
+
+仓库与Release已于2026-11-04设为公开，可直接阅读、克隆和匿名下载。协作推送代码仍需仓库Write权限。下载脚本默认不读取凭据；仅在需要私有访问或提高API额度时使用--authenticate。

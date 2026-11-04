@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-04",
+  "repository": "ZerothOpenBridge/supermimic",
+  "anonymous_repository_api": {
+    "private": false,
+    "visibility": "public"
+  },
+  "anonymous_published_release_assets": 6,
+  "script_default_authentication": false,
+  "optional_authentication_flag": "--authenticate",
+  "anonymous_download_test": {
+    "asset": "cuboi-mini3-seed0-onnx.tar.gz",
+    "bytes": 30113601,
+    "sha256": "a3f2cbcad0665d6e2117a6ba3b1e706a400ba6d19398f841432d82a1efaed69d",
+    "passed": true
+  },
+  "reachable_git_blobs_credential_scan": {
+    "blobs": 185,
+    "matches": 0
+  },
+  "release_model_bytes_changed": false,
+  "original_source_tags_moved": false
+}
