@@ -1,4 +1,4 @@
-"""Download this private repository's pinned Release artifacts and verify SHA256."""
+"""Download pinned public Release artifacts and verify SHA256; authentication is optional."""
 import argparse
 import hashlib
 import json
@@ -51,13 +51,15 @@ class SafeRedirect(urllib.request.HTTPRedirectHandler):
 
 def open_api(path, token, accept):
     url = 'https://api.github.com' + path
-    req = urllib.request.Request(url, headers={
-        'Authorization': 'Bearer ' + token, 'Accept': accept,
-        'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'supermimic-release-fetch'})
+    headers = {'Accept': accept, 'X-GitHub-Api-Version': '2022-11-28',
+               'User-Agent': 'supermimic-release-fetch'}
+    if token:
+        headers['Authorization'] = 'Bearer ' + token
+    req = urllib.request.Request(url, headers=headers)
     try:
         return urllib.request.build_opener(SafeRedirect).open(req, timeout=120)
     except urllib.error.HTTPError as exc:
-        raise RuntimeError('GitHub API status ' + str(exc.code) + '; check private-repository access and release tag') from None
+        raise RuntimeError('GitHub API status ' + str(exc.code) + '; check the release tag, API rate limit, or use --authenticate if access is required') from None
 
 
 def main():
@@ -66,6 +68,7 @@ def main():
     parser.add_argument('--kind', choices=['checkpoint', 'onnx', 'all'], default='all')
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--dry-run', action='store_true')
+    parser.add_argument('--authenticate', action='store_true', help='Use existing gh/Git credentials for private access, drafts or higher API limits')
     parser.add_argument('--verify-only', action='store_true', help='Offline checksum check; no GitHub login needed')
     parser.add_argument('--release-id', type=int, help='Maintainer QA: use this Release ID; pinned tag and checksums still apply')
     parser.add_argument('--allow-draft', action='store_true', help='Maintainer QA: permit an authenticated draft readback')
@@ -82,7 +85,7 @@ def main():
         return
     token, release = None, None
     if not args.verify_only:
-        token = get_credential(manifest['repository'])
+        token = get_credential(manifest['repository']) if args.authenticate else None
         release_path = '/repos/' + manifest['repository'] + ('/releases/' + str(args.release_id) if args.release_id else '/releases/tags/' + manifest['release_tag'])
         with open_api(release_path,
                       token, 'application/vnd.github+json') as response:

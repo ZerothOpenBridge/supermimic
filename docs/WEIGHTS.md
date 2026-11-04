@@ -1,6 +1,6 @@
 # Mini3 权重与复现
 
-模型发布在本私有仓库的 [mini3-seed0-v1 Release](https://github.com/ZerothOpenBridge/supermimic/releases/tag/mini3-seed0-v1)。需要仓库读取权限。Git 分支保存源码与清单，二进制附件保存于同一仓库的 Release，普通 `git clone` 不会自动下载权重。
+模型发布在本公开仓库的 [mini3-seed0-v1 Release](https://github.com/ZerothOpenBridge/supermimic/releases/tag/mini3-seed0-v1)。公开阅读和下载无需邀请或登录。Git 分支保存源码与清单，二进制附件保存于同一仓库的 Release，普通 `git clone` 不会自动下载权重。
 
 ## 发布内容
 
@@ -15,7 +15,7 @@
 
 ## 下载与校验
 
-下载脚本只使用 Python 标准库，支持 Python≥3.9。认证读取已有 `gh` 登录或 Git HTTPS credential helper，不要求把 token 写入命令、配置或仓库。若只有 SSH Git key，可先执行 `gh auth login`，取得本私有仓库读取权限。
+下载脚本只使用 Python 标准库，支持 Python≥3.9。默认匿名下载，不读取本机凭据。仅在私有访问、草稿验收或提高GitHub API额度时添加 `--authenticate`，此时读取已有 `gh` 登录或 Git HTTPS credential helper；无需把token写入命令、配置或仓库。
 
 在对应分支／tag checkout 根目录，以 Cuboi 为例：
 
@@ -45,7 +45,7 @@ zita 在其分支及章鱼容器挂载范围运行，checkpoint 改为 `zita-min
 
 ## 源码固定与复现范围
 
-源码版本固定为 `mini3-seed0-v1-cuboi`、`mini3-seed0-v1-zita`，也可用相应实现分支继续开发。contract 的 provenance.source_commit 指上游提交；Mini3 适配身份以 source_variant_tree_sha256、本仓库实现 tag 和配置清单共同确定。Release 自动生成的默认 Source code ZIP 基于 main 导航分支；复现实验请克隆实现 tag：
+源码版本固定为 `mini3-seed0-v1-cuboi`、`mini3-seed0-v1-zita`，也可用相应实现分支继续开发。contract 的 provenance.source_commit 指上游提交；Mini3 适配身份以 source_variant_tree_sha256、本仓库实现 tag 和配置清单共同确定。原始v1 tag保留发布时的下载脚本认证行为；需要匿名下载请使用当前main／cuboi／zita分支的 `scripts/fetch_weights.py`，或直接在公开Release页下载附件。模型字节、SHA256和原始源码tag不变。Release 自动生成的默认 Source code ZIP 基于 main 导航分支；复现实验请克隆实现 tag：
 
 ```bash
 git clone --branch mini3-seed0-v1-cuboi --single-branch https://github.com/ZerothOpenBridge/supermimic.git cuboi-mini3
@@ -64,7 +64,7 @@ git clone --branch mini3-seed0-v1-zita --single-branch https://github.com/Zeroth
 
 冻结统一Full-6000结果：Cuboi完成5964／6000、Fresh局部欧氏MPJPE约30.97mm；zita完成5965／6000、约28.03mm。指标按实际有效帧统计，失败保留；完整设置见 [Contract链路](CONTRACT_PIPELINE.md)。两套输入、表示和训练预算不同，不能把这一差异解释成严格的单变量算法提升。
 
-checkpoint及部署包属于本项目内部实验产物，私有分发不改变上游源码许可证或机器人／数据原来源的使用范围。许可证及来源见仓库根的 LICENSE／LICENSES 和 THIRD_PARTY_NOTICES.md。
+checkpoint及部署包属于本项目内部实验产物，公开分发不改变上游源码许可证或机器人／数据原来源的使用范围。许可证及来源见仓库根的 LICENSE／LICENSES 和 THIRD_PARTY_NOTICES.md。
 
 ## 发布复核记录
 
