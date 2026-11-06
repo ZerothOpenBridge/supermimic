@@ -8,7 +8,7 @@ import torch
 import torch.nn as nn
 
 from supermimic.world_model.dynamics import MLP
-from supermimic.world_model.heads import OBS_TERMS
+from supermimic.policy.layout import OBS_TERMS
 
 GOAL_DIM = 520
 LATENT_DIM = 32

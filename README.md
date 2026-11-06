@@ -2,6 +2,8 @@
 
 这是我们实际训练使用的Mini3适配源码快照；对应另一实现见[zita分支](https://github.com/ZerothOpenBridge/supermimic/tree/zita)，共同导航见[main](https://github.com/ZerothOpenBridge/supermimic/tree/main)。本分支不是上游G1默认示例。
 
+当前开发新增 Mini3 手柄命令与三点遥操训练入口：见[接口、蒸馏、SuperMimic 微调与测试](docs/CONTROL.md)。推荐复用已有世界模型做 BPTT，另保留 PPO 入口。目前完成代码及 CPU 检查，尚未启动接口正式训练或验证仿真收敛。
+
 **先读：[先导](docs/INTRODUCTION.md) · [环境](docs/ENVIRONMENT.md) · [训练](docs/TRAINING.md) · [日志](docs/LOGGING.md) · [CPFS数据与权重](docs/CPFS_ASSETS.md) · [权重与复现](docs/WEIGHTS.md) · [Contract链路](docs/CONTRACT_PIPELINE.md) · [本次验收范围](docs/VALIDATION.md)**
 
 ## 快速开始：复用已部署环境

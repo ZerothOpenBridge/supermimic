@@ -16,10 +16,10 @@ import torch
 from supermimic.envs.mdp.rewards import TrackingRewardCfg, tracking_reward_terms
 from supermimic.kinematics.g1_fk import G1Kinematics
 from supermimic.kinematics.rotations import projected_gravity, quat_apply_inverse
+from supermimic.policy.layout import OBS_TERMS
 
 OBS_DIM = 69
 # Term layout of the ``policy`` observation group (order matters: term-major history).
-OBS_TERMS = (("joint_pos", 21), ("joint_vel", 21), ("base_ang_vel", 3), ("projected_gravity", 3), ("actions", 21))
 
 
 def split_state(s: torch.Tensor):
